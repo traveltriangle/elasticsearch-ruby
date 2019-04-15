@@ -38,7 +38,7 @@ describe 'client.indices#get_template' do
   context 'when a \'not found\' exception is raised with the ignore parameter' do
 
     let(:client) do
-      Class.new { include Elasticsearch::API }.new.tap do |_client|
+      Class.new { include Elasticsearch6::API }.new.tap do |_client|
         expect(_client).to receive(:perform_request).with(*expected_args).and_raise(NotFound)
       end
     end

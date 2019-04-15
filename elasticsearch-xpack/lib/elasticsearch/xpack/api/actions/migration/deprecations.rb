@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Migration
@@ -12,8 +12,8 @@ module Elasticsearch
           # @see https://www.elastic.co/guide/en/elasticsearch/reference/current/migration-api-deprecation.html
           #
           def deprecations(arguments={})
-            method = Elasticsearch::API::HTTP_GET
-            path   = Elasticsearch::API::Utils.__pathify arguments[:index], "_xpack/migration/deprecations"
+            method = Elasticsearch6::API::HTTP_GET
+            path   = Elasticsearch6::API::Utils.__pathify arguments[:index], "_xpack/migration/deprecations"
             params = {}
             body   = nil
 

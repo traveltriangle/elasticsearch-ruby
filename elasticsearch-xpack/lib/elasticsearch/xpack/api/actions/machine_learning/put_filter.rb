@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module MachineLearning
@@ -10,7 +10,7 @@ module Elasticsearch
           def put_filter(arguments={})
             raise ArgumentError, "Required argument 'filter_id' missing" unless arguments[:filter_id]
             raise ArgumentError, "Required argument 'body' missing" unless arguments[:body]
-            method = Elasticsearch::API::HTTP_PUT
+            method = Elasticsearch6::API::HTTP_PUT
             path   = "_xpack/ml/filters/#{arguments[:filter_id]}"
             params = {}
             body   = arguments[:body]

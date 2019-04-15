@@ -1,8 +1,8 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Actions
 
-      # Remove an indexed script from Elasticsearch
+      # Remove an indexed script from Elasticsearch6
       #
       # @option arguments [String] :id Script ID (*Required*)
       # @option arguments [Time] :timeout Explicit operation timeout

@@ -1,7 +1,7 @@
-# Licensed to Elasticsearch B.V. under one or more contributor
+# Licensed to Elasticsearch6 B.V. under one or more contributor
 # license agreements. See the NOTICE file distributed with
 # this work for additional information regarding copyright
-# ownership. Elasticsearch B.V. licenses this file to you under
+# ownership. Elasticsearch6 B.V. licenses this file to you under
 # the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -15,7 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Security
@@ -40,9 +40,9 @@ module Elasticsearch
                              :name,
                              :realm_name ]
 
-            method = Elasticsearch::API::HTTP_GET
+            method = Elasticsearch6::API::HTTP_GET
             path   = "_security/api_key"
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
 
             perform_request(method, path, params).body
           end

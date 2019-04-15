@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Watcher
@@ -24,9 +24,9 @@ module Elasticsearch
               :if_seq_no,
               :if_primary_term ]
 
-            method = Elasticsearch::API::HTTP_PUT
+            method = Elasticsearch6::API::HTTP_PUT
             path   = "_xpack/watcher/watch/#{arguments[:id]}"
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
             body   = arguments[:body]
 
             perform_request(method, path, params, body).body

@@ -1,9 +1,9 @@
-# Elasticsearch
+# Elasticsearch6
 
-This repository contains Ruby integrations for [Elasticsearch](https://www.elastic.co/products/elasticsearch):
+This repository contains Ruby integrations for [Elasticsearch6](https://www.elastic.co/products/elasticsearch):
 
-* a client for connecting to an Elasticsearch cluster,
-* a Ruby API for the Elasticsearch's REST API,
+* a client for connecting to an Elasticsearch6 cluster,
+* a Ruby API for the Elasticsearch6's REST API,
 * various extensions and utilities.
 
 For integration with Ruby models and Rails applications,
@@ -11,13 +11,13 @@ see the **[elasticsearch-rails](https://github.com/elasticsearch/elasticsearch-r
 
 ## Compatibility
 
-The Elasticsearch client is compatible with Ruby 1.9 and higher.
+The Elasticsearch6 client is compatible with Ruby 1.9 and higher.
 Other libraries in this repository might require a more recent Ruby version.
 
-The client's API is compatible with Elasticsearch's API versions from 0.90 till current,
-just use a release matching major version of Elasticsearch.
+The client's API is compatible with Elasticsearch6's API versions from 0.90 till current,
+just use a release matching major version of Elasticsearch6.
 
-| Gem Version   |   | Elasticsearch |
+| Gem Version   |   | Elasticsearch6 |
 |:-------------:|:-:| :-----------: |
 | 0.90          | → | 0.90          |
 | 1.x           | → | 1.x           |
@@ -49,14 +49,14 @@ The [`elasticsearch`](https://github.com/elasticsearch/elasticsearch-ruby/tree/m
 library is a wrapper for two separate libraries:
 
 * [`elasticsearch-transport`](https://github.com/elasticsearch/elasticsearch-ruby/tree/master/elasticsearch-transport),
-  which provides a low-level Ruby client for connecting to an [Elasticsearch](https://www.elastic.co/products/elasticsearch) cluster
+  which provides a low-level Ruby client for connecting to an [Elasticsearch6](https://www.elastic.co/products/elasticsearch) cluster
 * [`elasticsearch-api`](https://github.com/elasticsearch/elasticsearch-ruby/tree/master/elasticsearch-api),
-  which provides a Ruby API for the Elasticsearch RESTful API
+  which provides a Ruby API for the Elasticsearch6 RESTful API
 
 ```ruby
 require 'elasticsearch'
 
-client = Elasticsearch::Client.new log: true
+client = Elasticsearch6::Client.new log: true
 
 client.transport.reload_connections!
 
@@ -81,7 +81,7 @@ This repository contains these additional Ruby libraries:
 * [`elasticsearch-extensions`](https://github.com/elastic/elasticsearch-ruby/tree/master/elasticsearch-extensions),
    which provides a set of extensions to the base library,
 * [`elasticsearch-dsl`](https://github.com/elastic/elasticsearch-ruby/tree/master/elasticsearch-dsl),
-  which provides a Ruby API for the [Elasticsearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html),
+  which provides a Ruby API for the [Elasticsearch6 Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html),
 * [`elasticsearch-xpack`](https://github.com/elastic/elasticsearch-ruby/tree/master/elasticsearch-xpack),
   which provides Ruby API for the [_X-Pack_](https://www.elastic.co/products/x-pack) APIs.
 
@@ -100,7 +100,7 @@ rake setup
 rake bundle
 ```
 
-This will clone the Elasticsearch repository into the project, and run `bundle install` in all subprojects.
+This will clone the Elasticsearch6 repository into the project, and run `bundle install` in all subprojects.
 
 To run tests, you need to start a testing cluster on port 9250,
 or provide a different one in the `TEST_CLUSTER_PORT` environment variable.
@@ -124,8 +124,8 @@ TEST_CLUSTER_TIMEOUT=120 \
 rake test:cluster:start
 ```
 
-To run tests against unreleased Elasticsearch versions, you can use the `rake elasticsearch:build`
-Rake task to build Elasticsearch from the cloned source
+To run tests against unreleased Elasticsearch6 versions, you can use the `rake elasticsearch:build`
+Rake task to build Elasticsearch6 from the cloned source
 (use `rake elasticsearch:update` to update the repository):
 
 **Note:** If you have gems from the `elasticsearch` family installed system-wide,
@@ -151,7 +151,7 @@ time rake test:all
 
 This software is licensed under the Apache 2 license, quoted below.
 
-    Copyright (c) 2013 Elasticsearch <http://www.elasticsearch.org>
+    Copyright (c) 2013 Elasticsearch6 <http://www.elasticsearch.org>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

@@ -13,7 +13,7 @@ describe 'client.snapshot#create' do
   end
 
   let(:client) do
-    Class.new { include Elasticsearch::API }.new
+    Class.new { include Elasticsearch6::API }.new
   end
 
   it 'requires the :repository argument' do

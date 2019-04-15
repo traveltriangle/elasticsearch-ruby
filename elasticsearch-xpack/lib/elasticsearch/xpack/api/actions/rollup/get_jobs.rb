@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Rollup
@@ -11,7 +11,7 @@ module Elasticsearch
           # @see
           #
           def get_jobs(arguments={})
-            method = Elasticsearch::API::HTTP_GET
+            method = Elasticsearch6::API::HTTP_GET
             path   = "_xpack/rollup/job/#{arguments[:id]}"
             params = {}
             body   = nil

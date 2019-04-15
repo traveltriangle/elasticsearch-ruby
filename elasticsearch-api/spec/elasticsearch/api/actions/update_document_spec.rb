@@ -20,7 +20,7 @@ describe 'client#update' do
   end
 
   let(:client) do
-    Class.new { include Elasticsearch::API }.new
+    Class.new { include Elasticsearch6::API }.new
   end
 
   let(:params) do

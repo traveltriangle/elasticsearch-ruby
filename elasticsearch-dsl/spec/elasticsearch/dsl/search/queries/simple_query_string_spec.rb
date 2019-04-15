@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Queries::SimpleQueryString do
+describe Elasticsearch6::DSL::Search::Queries::SimpleQueryString do
 
   describe '#to_hash' do
 

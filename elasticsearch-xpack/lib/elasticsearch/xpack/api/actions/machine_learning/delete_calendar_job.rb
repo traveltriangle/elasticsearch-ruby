@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module MachineLearning
@@ -14,7 +14,7 @@ module Elasticsearch
           def delete_calendar_job(arguments={})
             raise ArgumentError, "Required argument 'calendar_id' missing" unless arguments[:calendar_id]
             raise ArgumentError, "Required argument 'job_id' missing" unless arguments[:job_id]
-            method = Elasticsearch::API::HTTP_DELETE
+            method = Elasticsearch6::API::HTTP_DELETE
             path   = "_xpack/ml/calendars/#{arguments[:calendar_id]}/jobs/#{arguments[:job_id]}"
             params = {}
             body   = nil

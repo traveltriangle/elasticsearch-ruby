@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Queries::HasParent do
+describe Elasticsearch6::DSL::Search::Queries::HasParent do
 
   describe '#to_hash' do
 

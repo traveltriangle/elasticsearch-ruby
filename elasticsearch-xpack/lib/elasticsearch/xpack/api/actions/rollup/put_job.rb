@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Rollup
@@ -14,7 +14,7 @@ module Elasticsearch
           def put_job(arguments={})
             raise ArgumentError, "Required argument 'id' missing" unless arguments[:id]
             raise ArgumentError, "Required argument 'body' missing" unless arguments[:body]
-            method = Elasticsearch::API::HTTP_PUT
+            method = Elasticsearch6::API::HTTP_PUT
             path   = "_xpack/rollup/job/#{arguments[:id]}"
             params = {}
             body   = arguments[:body]

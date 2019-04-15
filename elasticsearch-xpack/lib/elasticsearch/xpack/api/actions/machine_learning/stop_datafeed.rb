@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module MachineLearning
@@ -19,9 +19,9 @@ module Elasticsearch
               :allow_no_datafeeds,
               :force,
               :timeout ]
-            method = Elasticsearch::API::HTTP_POST
+            method = Elasticsearch6::API::HTTP_POST
             path   = "_xpack/ml/datafeeds/#{arguments[:datafeed_id]}/_stop"
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
             body   = nil
 
             perform_request(method, path, params, body).body

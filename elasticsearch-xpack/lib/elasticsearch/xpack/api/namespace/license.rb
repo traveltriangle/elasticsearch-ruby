@@ -1,11 +1,11 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module License
         module Actions; end
 
         class LicenseClient
-          include Elasticsearch::API::Common::Client, Elasticsearch::API::Common::Client::Base, License::Actions
+          include Elasticsearch6::API::Common::Client, Elasticsearch6::API::Common::Client::Base, License::Actions
         end
 
         def license

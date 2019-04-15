@@ -5,10 +5,10 @@ require 'elasticsearch/version'
 
 Gem::Specification.new do |s|
   s.name          = "elasticsearch"
-  s.version       = Elasticsearch::VERSION
+  s.version       = Elasticsearch6::VERSION
   s.authors       = ["Karel Minarik"]
   s.email         = ["karel.minarik@elasticsearch.org"]
-  s.summary       = "Ruby integrations for Elasticsearch"
+  s.summary       = "Ruby integrations for Elasticsearch6"
   s.homepage      = "http://github.com/elasticsearch/elasticsearch-ruby"
   s.license       = "Apache-2.0"
 
@@ -64,6 +64,6 @@ Gem::Specification.new do |s|
   end
 
   s.description = <<-DESC.gsub(/^    /, '')
-    Ruby integrations for Elasticsearch (client, API, etc.)
+    Ruby integrations for Elasticsearch6 (client, API, etc.)
   DESC
 end

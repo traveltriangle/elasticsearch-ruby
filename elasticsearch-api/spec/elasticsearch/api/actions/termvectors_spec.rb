@@ -24,7 +24,7 @@ describe 'client#termvectors' do
   end
 
   let(:client) do
-    Class.new { include Elasticsearch::API }.new
+    Class.new { include Elasticsearch6::API }.new
   end
 
   it 'requires the :index argument' do

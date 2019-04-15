@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Migration
@@ -17,9 +17,9 @@ module Elasticsearch
             valid_params = [
               :wait_for_completion ]
 
-            method = Elasticsearch::API::HTTP_POST
-            path   = Elasticsearch::API::Utils.__pathify "_xpack/migration/upgrade", arguments[:index]
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            method = Elasticsearch6::API::HTTP_POST
+            path   = Elasticsearch6::API::Utils.__pathify "_xpack/migration/upgrade", arguments[:index]
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
             body   = nil
 
             perform_request(method, path, params, body).body

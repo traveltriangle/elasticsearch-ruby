@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Elasticsearch::API::Utils do
+describe Elasticsearch6::API::Utils do
 
   let(:utils) do
-    Class.new { include Elasticsearch::API::Utils }.new
+    Class.new { include Elasticsearch6::API::Utils }.new
   end
 
   describe '#__escape' do
@@ -262,10 +262,10 @@ describe Elasticsearch::API::Utils do
     context 'when the module has the setting to skip parameter validation' do
 
       around do |example|
-        original_value = Elasticsearch::API.settings[:skip_parameter_validation]
-        Elasticsearch::API.settings[:skip_parameter_validation] = true
+        original_value = Elasticsearch6::API.settings[:skip_parameter_validation]
+        Elasticsearch6::API.settings[:skip_parameter_validation] = true
         example.run
-        Elasticsearch::API.settings[:skip_parameter_validation] = original_value
+        Elasticsearch6::API.settings[:skip_parameter_validation] = original_value
       end
 
       let(:result) do

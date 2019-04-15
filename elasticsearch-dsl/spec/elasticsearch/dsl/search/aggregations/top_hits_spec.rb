@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Aggregations::TopHits do
+describe Elasticsearch6::DSL::Search::Aggregations::TopHits do
 
   let(:search) do
     described_class.new

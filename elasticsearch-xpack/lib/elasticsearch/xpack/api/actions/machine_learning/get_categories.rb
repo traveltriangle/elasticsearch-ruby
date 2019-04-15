@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module MachineLearning
@@ -19,9 +19,9 @@ module Elasticsearch
             valid_params = [
               :from,
               :size ]
-            method = Elasticsearch::API::HTTP_GET
-            path   = Elasticsearch::API::Utils.__pathify "_xpack/ml/anomaly_detectors", arguments[:job_id], "results/categories", arguments[:category_id]
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            method = Elasticsearch6::API::HTTP_GET
+            path   = Elasticsearch6::API::Utils.__pathify "_xpack/ml/anomaly_detectors", arguments[:job_id], "results/categories", arguments[:category_id]
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
             body   = arguments[:body]
 
             perform_request(method, path, params, body).body

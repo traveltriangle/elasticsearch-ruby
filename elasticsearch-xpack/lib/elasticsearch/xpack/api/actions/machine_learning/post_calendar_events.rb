@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module MachineLearning
@@ -14,7 +14,7 @@ module Elasticsearch
           def post_calendar_events(arguments={})
             raise ArgumentError, "Required argument 'calendar_id' missing" unless arguments[:calendar_id]
             raise ArgumentError, "Required argument 'body' missing" unless arguments[:body]
-            method = Elasticsearch::API::HTTP_POST
+            method = Elasticsearch6::API::HTTP_POST
             path   = "_xpack/ml/calendars/#{arguments[:calendar_id]}/events"
             params = {}
             body   = arguments[:body]

@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Indices
       module Actions
@@ -8,7 +8,7 @@ module Elasticsearch
         # The "flush" operation clears the transaction log and memory and writes data to disk.
         # It corresponds to a Lucene "commit" operation.
         #
-        # @note The flush operation is handled automatically by Elasticsearch, you don't need to perform it manually.
+        # @note The flush operation is handled automatically by Elasticsearch6, you don't need to perform it manually.
         #
         # @option arguments [List] :index A comma-separated list of index names; use `_all` or empty string for all indices
         # @option arguments [Boolean] :force Whether a flush should be forced even if it is not necessarily needed ie. if no changes will be committed to the index. This is useful if transaction log IDs should be incremented even if no uncommitted changes are present. (This setting can be considered as internal)

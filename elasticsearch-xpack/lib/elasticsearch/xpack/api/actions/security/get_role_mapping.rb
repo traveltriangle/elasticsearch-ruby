@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Security
@@ -11,8 +11,8 @@ module Elasticsearch
           # @see https://www.elastic.co/guide/en/x-pack/master/security-api-role-mapping.html#security-api-get-role-mapping
           #
           def get_role_mapping(arguments={})
-            method = Elasticsearch::API::HTTP_GET
-            path   = "_xpack/security/role_mapping/#{Elasticsearch::API::Utils.__listify(arguments[:name])}"
+            method = Elasticsearch6::API::HTTP_GET
+            path   = "_xpack/security/role_mapping/#{Elasticsearch6::API::Utils.__listify(arguments[:name])}"
             params = {}
             body   = nil
 

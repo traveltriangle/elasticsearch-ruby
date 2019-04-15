@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Rollup
@@ -12,7 +12,7 @@ module Elasticsearch
           #
           def stop_job(arguments={})
             raise ArgumentError, "Required argument 'id' missing" unless arguments[:id]
-            method = Elasticsearch::API::HTTP_POST
+            method = Elasticsearch6::API::HTTP_POST
             path   = "_xpack/rollup/job/#{arguments[:id]}/_stop"
             params = {}
             body   = nil

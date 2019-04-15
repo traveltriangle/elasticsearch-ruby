@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module SQL
@@ -12,7 +12,7 @@ module Elasticsearch
           #
           def clear_cursor(arguments={})
             raise ArgumentError, "Required argument 'body' missing" unless arguments[:body]
-            method = Elasticsearch::API::HTTP_POST
+            method = Elasticsearch6::API::HTTP_POST
             path   = "_xpack/sql/close"
             params = {}
             body   = arguments[:body]

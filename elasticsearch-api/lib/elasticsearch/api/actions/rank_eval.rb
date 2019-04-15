@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Actions
 
@@ -16,9 +16,9 @@ module Elasticsearch
       #
       def rank_eval(arguments={})
         raise ArgumentError, "Required argument 'body' missing" unless arguments[:body]
-        method = Elasticsearch::API::HTTP_GET
+        method = Elasticsearch6::API::HTTP_GET
         path   = "_rank_eval"
-        params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
+        params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
         body   = arguments[:body]
 
         perform_request(method, path, params, body).body

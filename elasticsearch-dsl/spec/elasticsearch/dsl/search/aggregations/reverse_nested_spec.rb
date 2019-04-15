@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Aggregations::ReverseNested do
+describe Elasticsearch6::DSL::Search::Aggregations::ReverseNested do
 
   let(:search) do
     described_class.new

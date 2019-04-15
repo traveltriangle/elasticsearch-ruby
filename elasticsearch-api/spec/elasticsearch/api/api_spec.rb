@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::API do
+describe Elasticsearch6::API do
 
   describe '#settings' do
 
@@ -9,17 +9,17 @@ describe Elasticsearch::API do
     end
 
     it 'has a default serializer' do
-      expect(Elasticsearch::API.serializer).to eq(MultiJson)
+      expect(Elasticsearch6::API.serializer).to eq(MultiJson)
     end
 
     context 'when settings are changed' do
 
       before do
-        Elasticsearch::API.settings[:foo] = 'bar'
+        Elasticsearch6::API.settings[:foo] = 'bar'
       end
 
       it 'changes the settings' do
-        expect(Elasticsearch::API.settings[:foo]).to eq('bar')
+        expect(Elasticsearch6::API.settings[:foo]).to eq('bar')
       end
     end
   end

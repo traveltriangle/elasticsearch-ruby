@@ -1,18 +1,18 @@
 require 'test_helper'
 require 'logger'
 
-module Elasticsearch
+module Elasticsearch6
   module Test
-    class ClientIntegrationTest < Elasticsearch::Test::IntegrationTestCase
+    class ClientIntegrationTest < Elasticsearch6::Test::IntegrationTestCase
       startup do
-        Elasticsearch::Extensions::Test::Cluster.start(number_of_nodes: 2) if ENV['SERVER'] and not Elasticsearch::Extensions::Test::Cluster.running?(number_of_nodes: 2)
+        Elasticsearch6::Extensions::Test::Cluster.start(number_of_nodes: 2) if ENV['SERVER'] and not Elasticsearch6::Extensions::Test::Cluster.running?(number_of_nodes: 2)
       end
 
       shutdown do
-        Elasticsearch::Extensions::Test::Cluster.stop(number_of_nodes: 2) if ENV['SERVER'] and Elasticsearch::Extensions::Test::Cluster.running?(number_of_nodes: 2)
+        Elasticsearch6::Extensions::Test::Cluster.stop(number_of_nodes: 2) if ENV['SERVER'] and Elasticsearch6::Extensions::Test::Cluster.running?(number_of_nodes: 2)
       end
 
-      context "Elasticsearch client" do
+      context "Elasticsearch6 client" do
         setup do
           system "curl -X DELETE http://#{TEST_HOST}:#{TEST_PORT}/_all > /dev/null 2>&1"
 
@@ -27,7 +27,7 @@ module Elasticsearch
             ANSI.ansi(severity[0] + ' ', color, :faint) + ANSI.ansi(msg, :white, :faint) + "\n"
           end
 
-          @client = Elasticsearch::Client.new host: "#{TEST_HOST}:#{TEST_PORT}", logger: (ENV['QUIET'] ? nil : @logger)
+          @client = Elasticsearch6::Client.new host: "#{TEST_HOST}:#{TEST_PORT}", logger: (ENV['QUIET'] ? nil : @logger)
         end
 
         should "perform the API methods" do

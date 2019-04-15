@@ -40,7 +40,7 @@ def admin_client
     else
       url = "http://#{host || 'localhost'}:#{port || 9200}"
     end
-    Elasticsearch::Client.new(host: url, transport_options: transport_options)
+    Elasticsearch6::Client.new(host: url, transport_options: transport_options)
   end
 end
 

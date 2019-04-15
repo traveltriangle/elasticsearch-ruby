@@ -191,9 +191,9 @@ RSpec::Matchers.define :match_error do |expected_error|
         message =~ /\[400\]/ ||
         actual_error.is_a?(ArgumentError)
       when 'unauthorized'
-        actual_error.is_a?(Elasticsearch::Transport::Transport::Errors::Unauthorized)
+        actual_error.is_a?(Elasticsearch6::Transport::Transport::Errors::Unauthorized)
       when 'forbidden'
-        actual_error.is_a?(Elasticsearch::Transport::Transport::Errors::Forbidden)
+        actual_error.is_a?(Elasticsearch6::Transport::Transport::Errors::Forbidden)
       else
         message =~ /#{expected_error}/
     end
@@ -204,13 +204,13 @@ describe 'XPack Rest API YAML tests' do
 
   REST_API_YAML_FILES.each do |file|
 
-    test_file = Elasticsearch::RestAPIYAMLTests::TestFile.new(file, REST_API_YAML_SKIP_FEATURES)
+    test_file = Elasticsearch6::RestAPIYAMLTests::TestFile.new(file, REST_API_YAML_SKIP_FEATURES)
 
     context "#{file.gsub("#{YAML_FILES_DIRECTORY}/", '')}" do
 
       before(:all) do
         # Runs once before all tests in a test file
-        Elasticsearch::RestAPIYAMLTests::TestFile.prepare(ADMIN_CLIENT)
+        Elasticsearch6::RestAPIYAMLTests::TestFile.prepare(ADMIN_CLIENT)
       end
 
       test_file.tests.each do |test|
@@ -231,18 +231,18 @@ describe 'XPack Rest API YAML tests' do
               begin
                 # watcher/get_watch/30_with_chain_input.yml needs to have a teardown deleting my_watch.
                 ADMIN_CLIENT.xpack.watcher.delete_watch(id: "my_watch")
-              rescue Elasticsearch::Transport::Transport::Errors::NotFound
+              rescue Elasticsearch6::Transport::Transport::Errors::NotFound
               end
 
               # todo: remove these two lines when Dimitris' PR is merged
               ADMIN_CLIENT.cluster.put_settings(body: { transient: { "xpack.ml.max_model_memory_limit" => nil } })
               ADMIN_CLIENT.cluster.put_settings(body: { persistent: { "xpack.ml.max_model_memory_limit" => nil } })
-              Elasticsearch::RestAPIYAMLTests::TestFile.send(:clear_datafeeds, ADMIN_CLIENT)
-              Elasticsearch::RestAPIYAMLTests::TestFile.send(:clear_ml_jobs, ADMIN_CLIENT)
-              Elasticsearch::RestAPIYAMLTests::TestFile.send(:clear_tasks, ADMIN_CLIENT)
-              Elasticsearch::RestAPIYAMLTests::TestFile.send(:clear_rollup_jobs, ADMIN_CLIENT)
-              Elasticsearch::RestAPIYAMLTests::TestFile.send(:clear_machine_learning_indices, ADMIN_CLIENT)
-              Elasticsearch::RestAPIYAMLTests::TestFile.send(:clear_indices, ADMIN_CLIENT)
+              Elasticsearch6::RestAPIYAMLTests::TestFile.send(:clear_datafeeds, ADMIN_CLIENT)
+              Elasticsearch6::RestAPIYAMLTests::TestFile.send(:clear_ml_jobs, ADMIN_CLIENT)
+              Elasticsearch6::RestAPIYAMLTests::TestFile.send(:clear_tasks, ADMIN_CLIENT)
+              Elasticsearch6::RestAPIYAMLTests::TestFile.send(:clear_rollup_jobs, ADMIN_CLIENT)
+              Elasticsearch6::RestAPIYAMLTests::TestFile.send(:clear_machine_learning_indices, ADMIN_CLIENT)
+              Elasticsearch6::RestAPIYAMLTests::TestFile.send(:clear_indices, ADMIN_CLIENT)
               test_file.setup(ADMIN_CLIENT)
             end
 

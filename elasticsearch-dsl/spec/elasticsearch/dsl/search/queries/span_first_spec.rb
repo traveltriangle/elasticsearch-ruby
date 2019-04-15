@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Queries::SpanFirst do
+describe Elasticsearch6::DSL::Search::Queries::SpanFirst do
 
   describe '#to_hash' do
 

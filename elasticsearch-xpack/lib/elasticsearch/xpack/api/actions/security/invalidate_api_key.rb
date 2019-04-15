@@ -1,7 +1,7 @@
-# Licensed to Elasticsearch B.V. under one or more contributor
+# Licensed to Elasticsearch6 B.V. under one or more contributor
 # license agreements. See the NOTICE file distributed with
 # this work for additional information regarding copyright
-# ownership. Elasticsearch B.V. licenses this file to you under
+# ownership. Elasticsearch6 B.V. licenses this file to you under
 # the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -15,7 +15,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Security
@@ -30,7 +30,7 @@ module Elasticsearch
           def invalidate_api_key(arguments={})
             raise ArgumentError, "Required argument 'body' missing" unless arguments[:body]
 
-            method = Elasticsearch::API::HTTP_DELETE
+            method = Elasticsearch6::API::HTTP_DELETE
             path   = "_security/api_key"
             params = {}
 

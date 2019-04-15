@@ -7,8 +7,8 @@ else
   require 'elasticsearch/transport/transport/http/manticore'
   require 'manticore'
 
-  class Elasticsearch::Transport::Transport::HTTP::ManticoreTest < Test::Unit::TestCase
-    include Elasticsearch::Transport::Transport::HTTP
+  class Elasticsearch6::Transport::Transport::HTTP::ManticoreTest < Test::Unit::TestCase
+    include Elasticsearch6::Transport::Transport::HTTP
 
     context "Manticore transport" do
       setup do

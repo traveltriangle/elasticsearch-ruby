@@ -10,7 +10,7 @@ Dir[ File.expand_path('../api/actions/**/params_registry.rb', __FILE__) ].each  
 Dir[ File.expand_path('../api/actions/**/*.rb', __FILE__) ].each   { |f| require f }
 Dir[ File.expand_path('../api/namespace/**/*.rb', __FILE__) ].each { |f| require f }
 
-module Elasticsearch
+module Elasticsearch6
   module API
     DEFAULT_SERIALIZER = MultiJson
 
@@ -43,16 +43,16 @@ module Elasticsearch
     #
     def self.included(base)
       base.send :include,
-                Elasticsearch::API::Common,
-                Elasticsearch::API::Actions,
-                Elasticsearch::API::Cluster,
-                Elasticsearch::API::Nodes,
-                Elasticsearch::API::Indices,
-                Elasticsearch::API::Ingest,
-                Elasticsearch::API::Snapshot,
-                Elasticsearch::API::Tasks,
-                Elasticsearch::API::Cat,
-                Elasticsearch::API::Remote
+                Elasticsearch6::API::Common,
+                Elasticsearch6::API::Actions,
+                Elasticsearch6::API::Cluster,
+                Elasticsearch6::API::Nodes,
+                Elasticsearch6::API::Indices,
+                Elasticsearch6::API::Ingest,
+                Elasticsearch6::API::Snapshot,
+                Elasticsearch6::API::Tasks,
+                Elasticsearch6::API::Cat,
+                Elasticsearch6::API::Remote
     end
 
     # The serializer class

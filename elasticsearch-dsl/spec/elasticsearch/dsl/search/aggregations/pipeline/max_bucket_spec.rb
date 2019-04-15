@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Aggregations::MaxBucket do
+describe Elasticsearch6::DSL::Search::Aggregations::MaxBucket do
 
   let(:search) do
     described_class.new

@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Actions
 
@@ -14,7 +14,7 @@ module Elasticsearch
       #
       #     client.search index: 'myindex', q: 'title:test'
       #
-      # @example Passing a full request definition in the Elasticsearch's Query DSL as a `Hash`
+      # @example Passing a full request definition in the Elasticsearch6's Query DSL as a `Hash`
       #
       #     client.search index: 'myindex',
       #                   body: {

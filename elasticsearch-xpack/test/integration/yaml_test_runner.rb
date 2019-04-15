@@ -94,8 +94,8 @@ $url = ENV.fetch('TEST_CLUSTER_URL', "http://elastic:#{password}@localhost:#{ENV
 
 puts '-'*80, "Connecting to <#{$url}>".ansi(:bold, :faint)
 
-$client        ||= Elasticsearch::Client.new url: $url
-$helper_client ||= Elasticsearch::Client.new url: $url
+$client        ||= Elasticsearch6::Client.new url: $url
+$helper_client ||= Elasticsearch6::Client.new url: $url
 
 es_version_info = $helper_client.info['version']
 xpack_info      = $helper_client.xpack.info
@@ -103,7 +103,7 @@ plugins         = $helper_client.cat.plugins(format: 'json')
 $es_version = es_version_info['number']
 
 puts '-'*80,
-     "Elasticsearch #{$es_version.ansi(:bold)} [#{es_version_info['build_hash'].to_s[0...7]}]",
+     "Elasticsearch6 #{$es_version.ansi(:bold)} [#{es_version_info['build_hash'].to_s[0...7]}]",
      "Plugins: " + plugins.map { |d| "#{d['component'].ansi(:bold)}:#{d['version']}"}.join(', '),
      "X-Pack #{xpack_info['license']['type']} license is #{xpack_info['license']['status'].ansi(:bold)} and expires at #{Time.at(xpack_info['license']['expiry_date_in_millis']/1000)}",
      '-'*80
@@ -125,7 +125,7 @@ module Minitest
   end
 end
 
-module Elasticsearch
+module Elasticsearch6
   module YamlTestSuite
     $last_response = ''
     $results = {}
@@ -276,7 +276,7 @@ module Elasticsearch
   end
 end
 
-include Elasticsearch::YamlTestSuite
+include Elasticsearch6::YamlTestSuite
 
 rest_api_test_source = '../../../../tmp/elasticsearch/x-pack/plugin/src/test/resources/rest-api-spec/test'
 PATH = Pathname(ENV.fetch('TEST_REST_API_SPEC', File.expand_path(rest_api_test_source, __FILE__)))
@@ -288,9 +288,9 @@ suites  = suites.select { |s| s.to_s =~ Regexp.new(ENV['FILTER']) } if ENV['FILT
 $stderr.puts "TEST SUITES: " + suites.map { |d| d.basename }.join(', ') if ENV['DEBUG']
 
 suites.each do |suite|
-  name = Elasticsearch::YamlTestSuite::Utils.titleize(suite.basename)
+  name = Elasticsearch6::YamlTestSuite::Utils.titleize(suite.basename)
 
-  Elasticsearch::YamlTestSuite::Runner.in_context name do
+  Elasticsearch6::YamlTestSuite::Runner.in_context name do
     # --- Register context setup -------------------------------------------
     #
     setup do
@@ -406,7 +406,7 @@ suites.each do |suite|
               if action['do']
                 if headers = action['do'] && action['do'].delete('headers')
                   puts "HEADERS: " + headers.inspect if ENV['DEBUG']
-                  $client = Elasticsearch::Client.new url: $url, transport_options: { headers: headers }
+                  $client = Elasticsearch6::Client.new url: $url, transport_options: { headers: headers }
                   $client.transport.logger = $logger unless ENV['QUIET'] || ENV['CI']
                 else
                   $client = $original_client
@@ -453,7 +453,7 @@ suites.each do |suite|
 
               if headers = action['do'] && action['do'].delete('headers')
                 puts "HEADERS: " + headers.inspect if ENV['DEBUG']
-                $client = Elasticsearch::Client.new url: $url, transport_options: { headers: headers }
+                $client = Elasticsearch6::Client.new url: $url, transport_options: { headers: headers }
                 $client.transport.logger = $logger unless ENV['QUIET'] || ENV['CI']
               else
                 $client = $original_client

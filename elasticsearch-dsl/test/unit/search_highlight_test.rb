@@ -1,13 +1,13 @@
 require 'test_helper'
 
-module Elasticsearch
+module Elasticsearch6
   module Test
-    class HighlightTest < ::Elasticsearch::Test::UnitTestCase
+    class HighlightTest < ::Elasticsearch6::Test::UnitTestCase
       context "Search highlight" do
-        subject { Elasticsearch::DSL::Search::Highlight.new }
+        subject { Elasticsearch6::DSL::Search::Highlight.new }
 
         should "take a Hash" do
-          subject  = Elasticsearch::DSL::Search::Highlight.new fields: { 'foo' => {} }, pre_tags: ['*'], post_tags: ['*']
+          subject  = Elasticsearch6::DSL::Search::Highlight.new fields: { 'foo' => {} }, pre_tags: ['*'], post_tags: ['*']
 
           assert_equal({ fields: { 'foo' => {} }, pre_tags: ['*'], post_tags: ['*'] }, subject.to_hash)
         end

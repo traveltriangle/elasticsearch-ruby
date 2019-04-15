@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Queries::FunctionScore do
+describe Elasticsearch6::DSL::Search::Queries::FunctionScore do
 
   describe '#to_hash' do
 

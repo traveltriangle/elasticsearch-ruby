@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'elasticsearch/extensions/reindex'
 
-class Elasticsearch::Extensions::ReindexIntegrationTest < Elasticsearch::Test::IntegrationTestCase
+class Elasticsearch6::Extensions::ReindexIntegrationTest < Elasticsearch6::Test::IntegrationTestCase
   context "The Reindex extension" do
     setup do
 
@@ -16,7 +16,7 @@ class Elasticsearch::Extensions::ReindexIntegrationTest < Elasticsearch::Test::I
         ANSI.ansi(severity[0] + ' ', color, :faint) + ANSI.ansi(msg, :white, :faint) + "\n"
       end
 
-      @client = Elasticsearch::Client.new host: "#{TEST_HOST}:#{TEST_PORT}", logger: @logger
+      @client = Elasticsearch6::Client.new host: "#{TEST_HOST}:#{TEST_PORT}", logger: @logger
       @client.indices.delete index: '_all'
 
       @client.index index: 'test1', type: 'd', id: 1, body: { title: 'TEST 1', category: 'one' }
@@ -34,7 +34,7 @@ class Elasticsearch::Extensions::ReindexIntegrationTest < Elasticsearch::Test::I
     end
 
     should "copy documents from one index to another" do
-      reindex = Elasticsearch::Extensions::Reindex.new \
+      reindex = Elasticsearch6::Extensions::Reindex.new \
                   source: { index: 'test1', client: @client },
                   target: { index: 'test2' },
                   batch_size: 2,
@@ -47,7 +47,7 @@ class Elasticsearch::Extensions::ReindexIntegrationTest < Elasticsearch::Test::I
     end
 
     should "transform documents with a lambda" do
-      reindex = Elasticsearch::Extensions::Reindex.new \
+      reindex = Elasticsearch6::Extensions::Reindex.new \
                   source: { index: 'test1', client: @client },
                   target: { index: 'test2' },
                   transform: lambda { |d| d['_source']['category'].upcase! },
@@ -64,7 +64,7 @@ class Elasticsearch::Extensions::ReindexIntegrationTest < Elasticsearch::Test::I
       @client.indices.create index: 'test3', body: { mappings: { d: { properties: { category: { type: 'integer' } }}}}
       @client.cluster.health wait_for_status: 'yellow'
 
-      reindex = Elasticsearch::Extensions::Reindex.new \
+      reindex = Elasticsearch6::Extensions::Reindex.new \
                   source: { index: 'test1', client: @client },
                   target: { index: 'test3' }
 

@@ -1,13 +1,13 @@
 require 'test_helper'
 
-module Elasticsearch
+module Elasticsearch6
   module Test
-    class SortingIntegrationTest < ::Elasticsearch::Test::IntegrationTestCase
-      include Elasticsearch::DSL::Search
+    class SortingIntegrationTest < ::Elasticsearch6::Test::IntegrationTestCase
+      include Elasticsearch6::DSL::Search
 
       context "Sorting integration" do
         startup do
-          Elasticsearch::Extensions::Test::Cluster.start(number_of_nodes: 1) if ENV['SERVER'] and not Elasticsearch::Extensions::Test::Cluster.running?(number_of_nodes: 1)
+          Elasticsearch6::Extensions::Test::Cluster.start(number_of_nodes: 1) if ENV['SERVER'] and not Elasticsearch6::Extensions::Test::Cluster.running?(number_of_nodes: 1)
         end
 
         setup do

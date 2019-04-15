@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Queries::Range do
+describe Elasticsearch6::DSL::Search::Queries::Range do
 
   describe '#to_hash' do
 

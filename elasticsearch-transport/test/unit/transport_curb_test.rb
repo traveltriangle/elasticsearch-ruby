@@ -6,8 +6,8 @@ else
   require 'elasticsearch/transport/transport/http/curb'
   require 'curb'
 
-  class Elasticsearch::Transport::Transport::HTTP::FaradayTest < Test::Unit::TestCase
-    include Elasticsearch::Transport::Transport::HTTP
+  class Elasticsearch6::Transport::Transport::HTTP::FaradayTest < Test::Unit::TestCase
+    include Elasticsearch6::Transport::Transport::HTTP
 
     context "Curb transport" do
       setup do

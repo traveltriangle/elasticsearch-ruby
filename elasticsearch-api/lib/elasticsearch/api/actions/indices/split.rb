@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Indices
       module Actions
@@ -23,9 +23,9 @@ module Elasticsearch
           source = arguments.delete(:index)
           target = arguments.delete(:target)
 
-          method = Elasticsearch::API::HTTP_PUT
+          method = Elasticsearch6::API::HTTP_PUT
           path   = Utils.__pathify Utils.__escape(source), '_split', Utils.__escape(target)
-          params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
+          params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
           body   = arguments[:body]
 
           perform_request(method, path, params, body).body

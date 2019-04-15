@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Common
       module Actions; end

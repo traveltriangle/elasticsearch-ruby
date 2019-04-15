@@ -18,13 +18,13 @@ require "elasticsearch/transport/redacted"
 
 require "elasticsearch/transport/version"
 
-module Elasticsearch
+module Elasticsearch6
   module Client
 
-    # A convenience wrapper for {::Elasticsearch::Transport::Client#initialize}.
+    # A convenience wrapper for {::Elasticsearch6::Transport::Client#initialize}.
     #
     def new(arguments={}, &block)
-      Elasticsearch::Transport::Client.new(arguments, &block)
+      Elasticsearch6::Transport::Client.new(arguments, &block)
     end
     extend self
   end

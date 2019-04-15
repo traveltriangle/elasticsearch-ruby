@@ -9,7 +9,7 @@ require 'multi_json'
 require 'coderay'
 require 'pry'
 
-module Elasticsearch
+module Elasticsearch6
 
   module API
 
@@ -63,7 +63,7 @@ module Elasticsearch
           @namespace_depth  = @full_namespace.size > 0 ? @full_namespace.size-1 : 0
           @module_namespace = @full_namespace[0, @namespace_depth]
           @method_name      = @full_namespace.last
-          @http_method      = "Elasticsearch::API::HTTP_#{@spec['methods'].first}"
+          @http_method      = "Elasticsearch6::API::HTTP_#{@spec['methods'].first}"
           @http_path        = unless @spec['url']['parts'].empty?
                                 @spec['url']['path']
                                   .split('/')

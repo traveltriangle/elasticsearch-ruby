@@ -1,13 +1,13 @@
 require 'elasticsearch/extensions/test/cluster'
 
 namespace :elasticsearch do
-  desc "Start Elasticsearch cluster for tests"
+  desc "Start Elasticsearch6 cluster for tests"
   task :start do
-    Elasticsearch::Extensions::Test::Cluster.start
+    Elasticsearch6::Extensions::Test::Cluster.start
   end
 
-  desc "Stop Elasticsearch cluster for tests"
+  desc "Stop Elasticsearch6 cluster for tests"
   task :stop do
-    Elasticsearch::Extensions::Test::Cluster.stop
+    Elasticsearch6::Extensions::Test::Cluster.stop
   end
 end

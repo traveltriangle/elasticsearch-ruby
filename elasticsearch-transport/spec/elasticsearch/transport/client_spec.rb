@@ -1,7 +1,7 @@
-# Licensed to Elasticsearch B.V. under one or more contributor
+# Licensed to Elasticsearch6 B.V. under one or more contributor
 # license agreements. See the NOTICE file distributed with
 # this work for additional information regarding copyright
-# ownership. Elasticsearch B.V. licenses this file to you under
+# ownership. Elasticsearch6 B.V. licenses this file to you under
 # the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -17,7 +17,7 @@
 
 require 'spec_helper'
 
-describe Elasticsearch::Transport::Client do
+describe Elasticsearch6::Transport::Client do
 
   let(:client) do
     described_class.new.tap do |_client|
@@ -25,12 +25,12 @@ describe Elasticsearch::Transport::Client do
     end
   end
 
-  it 'is aliased as Elasticsearch::Client' do
-    expect(Elasticsearch::Client.new).to be_a(described_class)
+  it 'is aliased as Elasticsearch6::Client' do
+    expect(Elasticsearch6::Client.new).to be_a(described_class)
   end
 
   it 'has a default transport' do
-    expect(client.transport).to be_a(Elasticsearch::Transport::Client::DEFAULT_TRANSPORT_CLASS)
+    expect(client.transport).to be_a(Elasticsearch6::Transport::Client::DEFAULT_TRANSPORT_CLASS)
   end
 
   it 'uses Faraday as the default transport' do
@@ -613,7 +613,7 @@ describe Elasticsearch::Transport::Client do
     end
   end
 
-  context 'when the client connects to Elasticsearch' do
+  context 'when the client connects to Elasticsearch6' do
 
     let(:logger) do
       Logger.new(STDERR).tap do |logger|
@@ -677,7 +677,7 @@ describe Elasticsearch::Transport::Client do
       context 'when a block is provided' do
 
         let(:client) do
-          Elasticsearch::Client.new(host: ELASTICSEARCH_HOSTS.first, logger: logger) do |client|
+          Elasticsearch6::Client.new(host: ELASTICSEARCH_HOSTS.first, logger: logger) do |client|
             client.headers['Accept'] = 'application/yaml'
           end
         end
@@ -694,7 +694,7 @@ describe Elasticsearch::Transport::Client do
         context 'when the Faraday adapter is set in the block' do
 
           let(:client) do
-            Elasticsearch::Client.new(host: ELASTICSEARCH_HOSTS.first, logger: logger) do |client|
+            Elasticsearch6::Client.new(host: ELASTICSEARCH_HOSTS.first, logger: logger) do |client|
               client.adapter(:net_http_persistent)
             end
           end
@@ -802,7 +802,7 @@ describe Elasticsearch::Transport::Client do
         it 'retries when the status matches' do
           expect {
             client.perform_request('PUT', '_foobar')
-          }.to raise_exception(Elasticsearch::Transport::Transport::Errors::BadRequest)
+          }.to raise_exception(Elasticsearch6::Transport::Transport::Errors::BadRequest)
         end
       end
     end
@@ -837,7 +837,7 @@ describe Elasticsearch::Transport::Client do
         it 'raises an exception' do
           expect {
             client.perform_request('GET', 'myindex/mydoc/1?routing=FOOBARBAZ')
-          }.to raise_exception(Elasticsearch::Transport::Transport::Errors::NotFound)
+          }.to raise_exception(Elasticsearch6::Transport::Transport::Errors::NotFound)
         end
       end
 

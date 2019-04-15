@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     <%- @module_namespace.each_with_index do |name, i| -%>
     <%= '  '*i %>module <%= name == 'xpack' ? 'XPack' : name.capitalize %>
@@ -38,7 +38,7 @@ module Elasticsearch
       <%= '  '*@namespace_depth %>  method = <%= @http_method %>
       <%= '  '*@namespace_depth %>  path   = "<%= @http_path %>"
       <%- unless @spec['url']['params'].empty? -%>
-      <%= '  '*@namespace_depth %>  params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
+      <%= '  '*@namespace_depth %>  params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
       <%- else -%>
       <%= '  '*@namespace_depth %>  params = {}
       <%- end -%>

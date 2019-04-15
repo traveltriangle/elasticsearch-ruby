@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module MachineLearning
@@ -13,7 +13,7 @@ module Elasticsearch
           #
           def delete_forecast(arguments={})
             raise ArgumentError, "Required argument 'job_id' missing" unless arguments[:job_id]
-            method = Elasticsearch::API::HTTP_DELETE
+            method = Elasticsearch6::API::HTTP_DELETE
             path   = "_xpack/ml/anomaly_detectors/#{arguments[:job_id]}/_forecast/#{arguments[:forecast_id]}"
 
             valid_params = [
@@ -21,7 +21,7 @@ module Elasticsearch
                 :allow_no_forecasts,
                 :timeout ]
 
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
             body   = nil
 
             perform_request(method, path, params, body).body

@@ -1,12 +1,12 @@
-module Elasticsearch
+module Elasticsearch6
 
   module RestAPIYAMLTests
 
     # Class representing a single action. An action is one of the following:
     #
     #   1. Applying header settings on a client.
-    #   2. Sending some request to Elasticsearch.
-    #   3. Sending some request to Elasticsearch, expecting an exception.
+    #   2. Sending some request to Elasticsearch6.
+    #   3. Sending some request to Elasticsearch6, expecting an exception.
     #
     # @since 6.2.0
     class Action
@@ -31,10 +31,10 @@ module Elasticsearch
       # @example Execute the action.
       #   action.execute(client, test)
       #
-      # @param [ Elasticsearch::Client ] client The client to use to execute the action.
+      # @param [ Elasticsearch6::Client ] client The client to use to execute the action.
       # @param [ Test ] test The test containing this action. Necessary for caching variables.
       #
-      # @return [ Elasticsearch::Client ] The client. It will be a new one than the one passed in,
+      # @return [ Elasticsearch6::Client ] The client. It will be a new one than the one passed in,
       #   if the action is to set headers.
       #
       # @since 6.2.0
@@ -52,11 +52,11 @@ module Elasticsearch
           case _method
           when 'headers'
             if ENV['QUIET'] == 'true'
-              # todo: create a method on Elasticsearch::Client that can clone the client with new options
-              Elasticsearch::Client.new(host: URL,
+              # todo: create a method on Elasticsearch6::Client that can clone the client with new options
+              Elasticsearch6::Client.new(host: URL,
                                         transport_options: TRANSPORT_OPTIONS.merge( headers: prepare_arguments(args, test)))
             else
-              Elasticsearch::Client.new(host: URL, tracer: Logger.new($stdout),
+              Elasticsearch6::Client.new(host: URL, tracer: Logger.new($stdout),
                                         transport_options: TRANSPORT_OPTIONS.merge( headers: prepare_arguments(args, test)))
             end
           when 'catch'

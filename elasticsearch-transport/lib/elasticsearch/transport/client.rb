@@ -1,7 +1,7 @@
-module Elasticsearch
+module Elasticsearch6
   module Transport
 
-    # Handles communication with an Elasticsearch cluster.
+    # Handles communication with an Elasticsearch6 cluster.
     #
     # See {file:README.md README} for usage and code examples.
     #
@@ -31,12 +31,12 @@ module Elasticsearch
 
       # Returns the transport object.
       #
-      # @see Elasticsearch::Transport::Transport::Base
-      # @see Elasticsearch::Transport::Transport::HTTP::Faraday
+      # @see Elasticsearch6::Transport::Transport::Base
+      # @see Elasticsearch6::Transport::Transport::HTTP::Faraday
       #
       attr_accessor :transport
 
-      # Create a client connected to an Elasticsearch cluster.
+      # Create a client connected to an Elasticsearch6 cluster.
       #
       # Specify the URL via arguments or set the `ELASTICSEARCH_URL` environment variable.
       #
@@ -80,7 +80,7 @@ module Elasticsearch
       #                                               the transport and passed the transport instance
       #
       # @option arguments [Constant] :selector An instance of selector strategy implemented with
-      #                                        {Elasticsearch::Transport::Transport::Connections::Selector::Base}.
+      #                                        {Elasticsearch6::Transport::Transport::Connections::Selector::Base}.
       #
       # @option arguments [String] :send_get_body_as Specify the HTTP method to use for GET requests with a body.
       #                                              (Default: GET)
@@ -150,7 +150,7 @@ module Elasticsearch
       # Arrayifies the `hosts_config` argument and extracts `host` and `port` info from strings.
       # Performs shuffling when the `randomize_hosts` option is set.
       #
-      # TODO: Refactor, so it's available in Elasticsearch::Transport::Base as well
+      # TODO: Refactor, so it's available in Elasticsearch6::Transport::Base as well
       #
       # @return [Array<Hash>]
       # @raise  [ArgumentError]

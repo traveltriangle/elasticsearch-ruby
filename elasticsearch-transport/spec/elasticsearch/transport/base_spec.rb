@@ -1,7 +1,7 @@
-# Licensed to Elasticsearch B.V. under one or more contributor
+# Licensed to Elasticsearch6 B.V. under one or more contributor
 # license agreements. See the NOTICE file distributed with
 # this work for additional information regarding copyright
-# ownership. Elasticsearch B.V. licenses this file to you under
+# ownership. Elasticsearch6 B.V. licenses this file to you under
 # the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -17,14 +17,14 @@
 
 require 'spec_helper'
 
-describe Elasticsearch::Transport::Transport::Base do
+describe Elasticsearch6::Transport::Transport::Base do
 
   context 'when a host is printed in a logged message' do
 
     shared_examples_for 'a redacted string' do
 
       let(:client) do
-        Elasticsearch::Transport::Client.new(arguments)
+        Elasticsearch6::Transport::Client.new(arguments)
       end
 
       let(:logger) do

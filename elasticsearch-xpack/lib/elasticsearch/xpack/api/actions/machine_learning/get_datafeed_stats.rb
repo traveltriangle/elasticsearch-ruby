@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module MachineLearning
@@ -15,9 +15,9 @@ module Elasticsearch
             valid_params = [
               :allow_no_datafeeds ]
 
-            method = Elasticsearch::API::HTTP_GET
-            path   = Elasticsearch::API::Utils.__pathify "_xpack/ml/datafeeds", arguments[:datafeed_id], "/_stats"
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            method = Elasticsearch6::API::HTTP_GET
+            path   = Elasticsearch6::API::Utils.__pathify "_xpack/ml/datafeeds", arguments[:datafeed_id], "/_stats"
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
             body   = nil
 
             perform_request(method, path, params, body).body

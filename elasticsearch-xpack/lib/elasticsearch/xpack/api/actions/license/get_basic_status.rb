@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module License
@@ -10,7 +10,7 @@ module Elasticsearch
           # @see https://www.elastic.co/guide/en/x-pack/current/license-management.html
           #
           def get_basic_status(arguments={})
-            method = Elasticsearch::API::HTTP_GET
+            method = Elasticsearch6::API::HTTP_GET
             path   = "_xpack/license/basic_status"
             params = {}
             body   = nil

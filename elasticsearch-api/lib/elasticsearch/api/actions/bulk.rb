@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Actions
 
@@ -61,7 +61,7 @@ module Elasticsearch
       # @option arguments [List] :_source_includes Default list of fields to extract and return from the _source field, can be overridden on each sub-request
       # @option arguments [String] :pipeline The pipeline id to preprocess incoming documents with
       #
-      # @return [Hash] Deserialized Elasticsearch response
+      # @return [Hash] Deserialized Elasticsearch6 response
       #
       # @see https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html
       #

@@ -1,25 +1,25 @@
 require 'test_helper'
 
-module Elasticsearch
+module Elasticsearch6
   module Test
-    class BaseComponentTest < ::Elasticsearch::Test::UnitTestCase
+    class BaseComponentTest < ::Elasticsearch6::Test::UnitTestCase
       context "BaseComponent" do
 
         class DummyComponent
-          include Elasticsearch::DSL::Search::BaseComponent
+          include Elasticsearch6::DSL::Search::BaseComponent
         end
 
         class DummyComponentWithAName
-          include Elasticsearch::DSL::Search::BaseComponent
+          include Elasticsearch6::DSL::Search::BaseComponent
           name :foo
         end
 
         class DummyComponentWithNewName
-          include Elasticsearch::DSL::Search::BaseComponent
+          include Elasticsearch6::DSL::Search::BaseComponent
         end
 
         class DummyCompoundFilter
-          include Elasticsearch::DSL::Search::BaseCompoundFilterComponent
+          include Elasticsearch6::DSL::Search::BaseCompoundFilterComponent
         end
 
         subject { DummyComponent.new :foo }
@@ -53,7 +53,7 @@ module Elasticsearch
 
         should "have an option method with args" do
           class DummyComponentWithOptionMethod
-            include Elasticsearch::DSL::Search::BaseComponent
+            include Elasticsearch6::DSL::Search::BaseComponent
             option_method :bar
           end
 
@@ -66,7 +66,7 @@ module Elasticsearch
 
         should "keep track of option methods" do
           class DummyComponentWithCustomOptionMethod
-            include Elasticsearch::DSL::Search::BaseComponent
+            include Elasticsearch6::DSL::Search::BaseComponent
             option_method :foo
           end
 
@@ -76,7 +76,7 @@ module Elasticsearch
 
         should "have an option method without args" do
           class DummyComponentWithOptionMethod
-            include Elasticsearch::DSL::Search::BaseComponent
+            include Elasticsearch6::DSL::Search::BaseComponent
             option_method :bar
           end
 
@@ -89,7 +89,7 @@ module Elasticsearch
 
         should "define a custom option method" do
           class DummyComponentWithCustomOptionMethod
-            include Elasticsearch::DSL::Search::BaseComponent
+            include Elasticsearch6::DSL::Search::BaseComponent
             option_method :bar, lambda { |*args| @hash = { :foo => 'bar' } }
           end
 
@@ -135,7 +135,7 @@ module Elasticsearch
 
           should "build the hash with the option method" do
             class DummyComponentWithOptionMethod
-              include Elasticsearch::DSL::Search::BaseComponent
+              include Elasticsearch6::DSL::Search::BaseComponent
               option_method :foo
             end
 
@@ -154,7 +154,7 @@ module Elasticsearch
 
           should "merge the top-level options to the hash" do
             class DummyComponentWithOptionMethod
-              include Elasticsearch::DSL::Search::BaseComponent
+              include Elasticsearch6::DSL::Search::BaseComponent
               option_method :bar
             end
 

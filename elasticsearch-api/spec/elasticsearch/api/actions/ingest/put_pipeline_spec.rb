@@ -17,7 +17,7 @@ describe 'client.ingest#put_pipeline' do
   end
 
   let(:client) do
-    Class.new { include Elasticsearch::API }.new
+    Class.new { include Elasticsearch6::API }.new
   end
 
   it 'requires the :id argument' do

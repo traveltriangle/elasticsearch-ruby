@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Queries::FuzzyLikeThisField do
+describe Elasticsearch6::DSL::Search::Queries::FuzzyLikeThisField do
 
   describe '#to_hash' do
 

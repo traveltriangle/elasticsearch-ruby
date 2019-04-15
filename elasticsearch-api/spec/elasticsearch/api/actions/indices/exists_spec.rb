@@ -64,7 +64,7 @@ describe 'client.indices#exists' do
   context 'when a \'not found\' exception is raised' do
 
     let(:client) do
-      Class.new { include Elasticsearch::API }.new.tap do |_client|
+      Class.new { include Elasticsearch6::API }.new.tap do |_client|
         expect(_client).to receive(:perform_request).with(*expected_args).and_raise(StandardError.new('404 Not Found'))
       end
     end
@@ -77,7 +77,7 @@ describe 'client.indices#exists' do
   context 'when a generic exception is raised' do
 
     let(:client) do
-      Class.new { include Elasticsearch::API }.new.tap do |_client|
+      Class.new { include Elasticsearch6::API }.new.tap do |_client|
         expect(_client).to receive(:perform_request).with(*expected_args).and_raise(StandardError.new)
       end
     end

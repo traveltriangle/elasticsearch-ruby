@@ -25,7 +25,7 @@ namespace :test do
     git_specs "fetch origin --verbose", :verbose => true
   end
 
-  desc "Wait for Elasticsearch to be in a green state"
+  desc "Wait for Elasticsearch6 to be in a green state"
   task :wait_for_green do
     sh '../scripts/wait-cluster.sh'
   end
@@ -69,7 +69,7 @@ namespace :test do
     begin
       url = ENV['TEST_CLUSTER_URL'] || ENV['TEST_ES_SERVER']
       url = "http://localhost:#{ENV['TEST_CLUSTER_PORT'] || 9250}" unless url
-      client = Elasticsearch::Client.new :url => url
+      client = Elasticsearch6::Client.new :url => url
       es_version_info = client.info['version']
       build_hash      = es_version_info['build_hash']
       cluster_running = true
@@ -122,18 +122,18 @@ namespace :test do
   end
 
   namespace :cluster do
-    desc "Start Elasticsearch nodes for tests"
+    desc "Start Elasticsearch6 nodes for tests"
     task :start do
       $LOAD_PATH << File.expand_path('../../elasticsearch-transport/lib', __FILE__) << File.expand_path('../test', __FILE__)
       require 'elasticsearch/extensions/test/cluster'
-      Elasticsearch::Extensions::Test::Cluster.start
+      Elasticsearch6::Extensions::Test::Cluster.start
     end
 
-    desc "Stop Elasticsearch nodes for tests"
+    desc "Stop Elasticsearch6 nodes for tests"
     task :stop do
       $LOAD_PATH << File.expand_path('../../elasticsearch-transport/lib', __FILE__) << File.expand_path('../test', __FILE__)
       require 'elasticsearch/extensions/test/cluster'
-      Elasticsearch::Extensions::Test::Cluster.stop
+      Elasticsearch6::Extensions::Test::Cluster.stop
     end
   end
 end

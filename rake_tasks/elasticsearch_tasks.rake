@@ -19,23 +19,23 @@ namespace :elasticsearch do
         puts "Attempting to wait for green status: #{i + 1}"
         if admin_client.cluster.health(wait_for_status: 'green', timeout: '50s')
           ready = true
-          puts 'Connected to Elasticsearch'
+          puts 'Connected to Elasticsearch6'
           break
         end
-      rescue Elasticsearch::Transport::Transport::Errors::RequestTimeout => ex
+      rescue Elasticsearch6::Transport::Transport::Errors::RequestTimeout => ex
         puts "Couldn't confirm green status.\n#{ex.inspect}."
       rescue Faraday::ConnectionFailed => ex
-        puts "Couldn't connect to Elasticsearch.\n#{ex.inspect}."
+        puts "Couldn't connect to Elasticsearch6.\n#{ex.inspect}."
         sleep(30)
       end
     end
     unless ready
-      puts "Couldn't connect to Elasticsearch, aborting program."
+      puts "Couldn't connect to Elasticsearch6, aborting program."
       exit(1)
     end
   end
 
-  desc "Update the submodule with Elasticsearch core repository"
+  desc "Update the submodule with Elasticsearch6 core repository"
   task :update => :setup do
     sh "git --git-dir=#{CURRENT_PATH.join('tmp/elasticsearch/.git')} --work-tree=#{CURRENT_PATH.join('tmp/elasticsearch')} fetch origin --quiet"
     begin
@@ -53,7 +53,7 @@ namespace :elasticsearch do
   end
 
   desc <<-DESC
-    Build Elasticsearch for the specified branch ('origin/master' by default)"
+    Build Elasticsearch6 for the specified branch ('origin/master' by default)"
 
     Build a specific branch:
 
@@ -131,7 +131,7 @@ namespace :elasticsearch do
     Rake::Task['elasticsearch:builds'].invoke
   end
 
-  desc "Display the info for all branches in the Elasticsearch submodule"
+  desc "Display the info for all branches in the Elasticsearch6 submodule"
   task :status do
     sh "git --git-dir=#{CURRENT_PATH.join('tmp/elasticsearch/.git')} --work-tree=#{CURRENT_PATH.join('tmp/elasticsearch')} branch -v -v", :verbose => false
   end
@@ -151,7 +151,7 @@ namespace :elasticsearch do
     sh "git --git-dir=#{CURRENT_PATH.join('tmp/elasticsearch/.git')} --work-tree=#{CURRENT_PATH.join('tmp/elasticsearch')} log --pretty=format:'%C(yellow)%h%Creset %s \e[2m[%ar by %an]\e[0m' -- rest-api-spec", :verbose => false
   end
 
-  desc "Checkout the build hash from the running Elasticsearch server"
+  desc "Checkout the build hash from the running Elasticsearch6 server"
   task :checkout_build do
     require 'elasticsearch'
 

@@ -2,7 +2,7 @@ require 'support/test_file/action'
 require 'support/test_file/task_group'
 require 'support/test_file/test'
 
-module Elasticsearch
+module Elasticsearch6
 
   module RestAPIYAMLTests
 
@@ -51,7 +51,7 @@ module Elasticsearch
       # @example Run the setup tasks.
       #   test_file.setup(client)
       #
-      # @param [ Elasticsearch::Client ] client The client to use to perform the setup tasks.
+      # @param [ Elasticsearch6::Client ] client The client to use to perform the setup tasks.
       #
       # @return [ self ]
       #
@@ -70,7 +70,7 @@ module Elasticsearch
       # @example Run the teardown tasks.
       #   test_file.teardown(client)
       #
-      # @param [ Elasticsearch::Client ] client The client to use to perform the teardown tasks.
+      # @param [ Elasticsearch6::Client ] client The client to use to perform the teardown tasks.
       #
       # @return [ self ]
       #
@@ -84,7 +84,7 @@ module Elasticsearch
 
       class << self
 
-        # Prepare Elasticsearch for a single test file.
+        # Prepare Elasticsearch6 for a single test file.
         # This method deletes indices, roles, datafeeds, etc.
         #
         # @since 6.2.0

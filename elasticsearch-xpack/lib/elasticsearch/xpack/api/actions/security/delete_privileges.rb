@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Security
@@ -13,9 +13,9 @@ module Elasticsearch
 
             valid_params = [ :refresh ]
 
-            method = Elasticsearch::API::HTTP_DELETE
+            method = Elasticsearch6::API::HTTP_DELETE
             path   = "_xpack/security/privilege/#{arguments.delete(:application)}/#{arguments[:name]}"
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
             body   = nil
 
             perform_request(method, path, params, body).body

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Filters::GeoBoundingBox do
+describe Elasticsearch6::DSL::Search::Filters::GeoBoundingBox do
 
   describe '#to_hash' do
 

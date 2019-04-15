@@ -1,4 +1,4 @@
-# An example of a complex configuration for Elasticsearch Watcher alerting and notification system.
+# An example of a complex configuration for Elasticsearch6 Watcher alerting and notification system.
 #
 # Execute this file from the root of the repository:
 #
@@ -27,14 +27,14 @@ require 'elasticsearch/xpack'
 
 password = ENV.fetch('ELASTIC_PASSWORD', 'changeme')
 
-client = Elasticsearch::Client.new url: "http://elastic:#{password}@localhost:9260", log: true
+client = Elasticsearch6::Client.new url: "http://elastic:#{password}@localhost:9260", log: true
 client.transport.logger.formatter = proc do |severity, datetime, progname, msg| "\e[2m#{msg}\e[0m\n" end
 
 # Print information about the Watcher plugin
 #
 cluster_info = client.info
 xpack_info = client.xpack.info
-puts "Elasticsearch #{cluster_info['version']['number']} | X-Pack build [#{xpack_info['build']['hash']}]"
+puts "Elasticsearch6 #{cluster_info['version']['number']} | X-Pack build [#{xpack_info['build']['hash']}]"
 
 # Delete the Watcher and test indices
 #

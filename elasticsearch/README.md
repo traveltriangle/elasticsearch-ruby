@@ -1,6 +1,6 @@
-# Elasticsearch
+# Elasticsearch6
 
-The `elasticsearch` library provides a Ruby client and API for [Elasticsearch](http://elasticsearch.org).
+The `elasticsearch` library provides a Ruby client and API for [Elasticsearch6](http://elasticsearch.org).
 
 Features overview:
 
@@ -10,7 +10,7 @@ Features overview:
 * Pluggable serializer implementation
 * Request retries and dead connections handling
 * Node reloading (based on cluster state) on errors or on demand
-* Consistent API support for the whole Elasticsearch API
+* Consistent API support for the whole Elasticsearch6 API
 * Extensive documentation and examples
 * Emphasis on modularity and extendability of both the client and API libraries
 
@@ -19,12 +19,12 @@ see the <https://github.com/elasticsearch/elasticsearch-rails> project.)
 
 ## Compatibility
 
-The Elasticsearch client for Ruby is compatible with Ruby 1.9 and higher.
+The Elasticsearch6 client for Ruby is compatible with Ruby 1.9 and higher.
 
-The client's API is compatible with Elasticsearch's API versions from 0.90 till current,
-just use a release matching major version of Elasticsearch.
+The client's API is compatible with Elasticsearch6's API versions from 0.90 till current,
+just use a release matching major version of Elasticsearch6.
 
-| Ruby          |   | Elasticsearch |
+| Ruby          |   | Elasticsearch6 |
 |:-------------:|:-:| :-----------: |
 | 0.90          | → | 0.90          |
 | 1.x           | → | 1.x           |
@@ -55,16 +55,16 @@ or install it from a source code checkout:
 This library is a wrapper for two separate libraries:
 
 * [`elasticsearch-transport`](https://github.com/elasticsearch/elasticsearch-ruby/tree/master/elasticsearch-transport),
-  which provides a low-level Ruby client for connecting to an [Elasticsearch](http://elasticsearch.org) cluster
+  which provides a low-level Ruby client for connecting to an [Elasticsearch6](http://elasticsearch.org) cluster
 * [`elasticsearch-api`](https://github.com/elasticsearch/elasticsearch-ruby/tree/master/elasticsearch-api),
-  which provides a Ruby API for the Elasticsearch RESTful API
+  which provides a Ruby API for the Elasticsearch6 RESTful API
 
 Install the `elasticsearch` package and use the API directly:
 
 ```ruby
 require 'elasticsearch'
 
-client = Elasticsearch::Client.new log: true
+client = Elasticsearch6::Client.new log: true
 
 client.cluster.health
 
@@ -89,7 +89,7 @@ Please refer to the specific library documentation for details:
 
 This software is licensed under the Apache 2 license, quoted below.
 
-    Copyright (c) 2013 Elasticsearch <http://www.elasticsearch.org>
+    Copyright (c) 2013 Elasticsearch6 <http://www.elasticsearch.org>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

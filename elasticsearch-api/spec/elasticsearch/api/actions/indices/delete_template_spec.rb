@@ -38,7 +38,7 @@ describe 'client.indices#delete_template' do
   context 'when a NotFound exception is raised by the request' do
 
     let(:client) do
-      Class.new { include Elasticsearch::API }.new
+      Class.new { include Elasticsearch6::API }.new
     end
 
     before do
@@ -55,7 +55,7 @@ describe 'client.indices#delete_template' do
   context 'when the ignore parameter is specified' do
 
     let(:client) do
-      Class.new { include Elasticsearch::API }.new
+      Class.new { include Elasticsearch6::API }.new
     end
 
     before do

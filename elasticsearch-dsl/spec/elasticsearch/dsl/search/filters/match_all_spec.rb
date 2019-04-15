@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Filters::MatchAll do
+describe Elasticsearch6::DSL::Search::Filters::MatchAll do
 
   let(:search) do
     described_class.new

@@ -47,22 +47,22 @@ namespace :test do
   end
 
   namespace :cluster do
-    desc "Start Elasticsearch nodes for tests"
+    desc "Start Elasticsearch6 nodes for tests"
     task :start do
       require 'elasticsearch/extensions/test/cluster'
-      Elasticsearch::Extensions::Test::Cluster.start
+      Elasticsearch6::Extensions::Test::Cluster.start
     end
 
-    desc "Stop Elasticsearch nodes for tests"
+    desc "Stop Elasticsearch6 nodes for tests"
     task :stop do
       require 'elasticsearch/extensions/test/cluster'
-      Elasticsearch::Extensions::Test::Cluster.stop
+      Elasticsearch6::Extensions::Test::Cluster.stop
     end
 
     task :status do
       require 'elasticsearch/extensions/test/cluster'
-      (puts "\e[31m[!] Test cluster not running\e[0m"; exit(1)) unless Elasticsearch::Extensions::Test::Cluster.running?
-      Elasticsearch::Extensions::Test::Cluster.__print_cluster_info(ENV['TEST_CLUSTER_PORT'] || 9250)
+      (puts "\e[31m[!] Test cluster not running\e[0m"; exit(1)) unless Elasticsearch6::Extensions::Test::Cluster.running?
+      Elasticsearch6::Extensions::Test::Cluster.__print_cluster_info(ENV['TEST_CLUSTER_PORT'] || 9250)
     end
   end
 end

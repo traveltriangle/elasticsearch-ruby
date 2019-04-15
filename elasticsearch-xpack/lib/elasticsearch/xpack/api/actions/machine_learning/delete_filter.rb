@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module MachineLearning
@@ -8,7 +8,7 @@ module Elasticsearch
           #
           def delete_filter(arguments={})
             raise ArgumentError, "Required argument 'filter_id' missing" unless arguments[:filter_id]
-            method = Elasticsearch::API::HTTP_DELETE
+            method = Elasticsearch6::API::HTTP_DELETE
             path   = "_xpack/ml/filters/#{arguments[:filter_id]}"
             params = {}
             body   = nil

@@ -1,13 +1,13 @@
 require 'test_helper'
 
-module Elasticsearch
+module Elasticsearch6
   module Test
-    class QueryIntegrationTest < ::Elasticsearch::Test::IntegrationTestCase
-      include Elasticsearch::DSL::Search
+    class QueryIntegrationTest < ::Elasticsearch6::Test::IntegrationTestCase
+      include Elasticsearch6::DSL::Search
 
       context "Queries integration" do
         startup do
-          Elasticsearch::Extensions::Test::Cluster.start(number_of_nodes: 1) if ENV['SERVER'] and not Elasticsearch::Extensions::Test::Cluster.running?(number_of_nodes: 1)
+          Elasticsearch6::Extensions::Test::Cluster.start(number_of_nodes: 1) if ENV['SERVER'] and not Elasticsearch6::Extensions::Test::Cluster.running?(number_of_nodes: 1)
         end
 
         setup do
@@ -57,7 +57,7 @@ module Elasticsearch
           end
 
           should "find the document with a filter" do
-            skip "Not supported on this Elasticsearch version" unless @version > '2'
+            skip "Not supported on this Elasticsearch6 version" unless @version > '2'
 
             response = @client.search index: 'test', body: search {
                 query do

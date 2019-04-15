@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
 
   module RestAPIYAMLTests
 
@@ -60,7 +60,7 @@ module Elasticsearch
           # @example Run the actions
           #   task_group.run(client)
           #
-          # @param [ Elasticsearch::Client ] client The client to use to run the actions.
+          # @param [ Elasticsearch6::Client ] client The client to use to run the actions.
           #
           # @return [ self ]
           #

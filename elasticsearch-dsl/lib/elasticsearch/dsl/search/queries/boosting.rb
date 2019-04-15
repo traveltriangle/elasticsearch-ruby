@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module DSL
     module Search
       module Queries

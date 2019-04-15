@@ -1,8 +1,8 @@
-module Elasticsearch
+module Elasticsearch6
   module Transport
     module Transport
 
-      # Wraps the response from Elasticsearch.
+      # Wraps the response from Elasticsearch6.
       #
       class Response
         attr_reader :status, :body, :headers

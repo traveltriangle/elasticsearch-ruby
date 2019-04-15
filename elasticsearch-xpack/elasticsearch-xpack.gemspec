@@ -5,12 +5,12 @@ require 'elasticsearch/xpack/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "elasticsearch-xpack"
-  spec.version       = Elasticsearch::XPack::VERSION
+  spec.version       = Elasticsearch6::XPack::VERSION
   spec.authors       = ["Karel Minarik"]
   spec.email         = ["karel@elastic.co"]
 
-  spec.summary       = "Ruby integrations for the X-Pack extensions for Elasticsearch"
-  spec.description   = "Ruby integrations for the X-Pack extensions for Elasticsearch"
+  spec.summary       = "Ruby integrations for the X-Pack extensions for Elasticsearch6"
+  spec.description   = "Ruby integrations for the X-Pack extensions for Elasticsearch6"
   spec.homepage      = "https://github.com/elastic/elasticsearch-ruby/tree/master/elasticsearch-xpack"
   spec.license       = "Apache-2.0"
 

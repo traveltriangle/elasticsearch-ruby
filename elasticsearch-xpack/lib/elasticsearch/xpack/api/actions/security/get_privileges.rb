@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Security
@@ -11,10 +11,10 @@ module Elasticsearch
           # @see https://www.elastic.co/guide/en/x-pack/current/security-api-roles.html#security-api-get-role
           #
           def get_privileges(arguments={})
-            method = Elasticsearch::API::HTTP_GET
-            path   = Elasticsearch::API::Utils.__pathify "_xpack/security/privilege",
+            method = Elasticsearch6::API::HTTP_GET
+            path   = Elasticsearch6::API::Utils.__pathify "_xpack/security/privilege",
                                                          arguments[:application],
-                                                         Elasticsearch::API::Utils.__listify(arguments[:name])
+                                                         Elasticsearch6::API::Utils.__listify(arguments[:name])
             params = {}
             body   = nil
 

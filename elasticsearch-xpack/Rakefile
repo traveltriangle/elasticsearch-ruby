@@ -30,7 +30,7 @@ namespace :test do
     COMMAND
   end
 
-  desc "Run Elasticsearch with X-Pack installed (Docker)"
+  desc "Run Elasticsearch6 with X-Pack installed (Docker)"
     task :elasticsearch do
       sh <<-COMMAND.gsub(/^\s*/, '').gsub(/\s{1,}/, ' ')
         docker run \

@@ -1,9 +1,9 @@
 require 'test_helper'
 
-module Elasticsearch
+module Elasticsearch6
   module Test
-    class SearchOptionsIntegrationTest < ::Elasticsearch::Test::IntegrationTestCase
-      include Elasticsearch::DSL::Search
+    class SearchOptionsIntegrationTest < ::Elasticsearch6::Test::IntegrationTestCase
+      include Elasticsearch6::DSL::Search
 
       context "Search options" do
         setup do

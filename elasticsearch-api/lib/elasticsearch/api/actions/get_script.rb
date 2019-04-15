@@ -1,8 +1,8 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Actions
 
-      # Retrieve an indexed script from Elasticsearch
+      # Retrieve an indexed script from Elasticsearch6
       #
       # @option arguments [String] :id Script ID (*Required*)
       # @option arguments [Time] :master_timeout Specify timeout for connection to master

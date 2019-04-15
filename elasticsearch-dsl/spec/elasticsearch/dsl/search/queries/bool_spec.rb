@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Queries::Bool do
+describe Elasticsearch6::DSL::Search::Queries::Bool do
 
   describe '#to_hash' do
 
@@ -172,10 +172,10 @@ describe Elasticsearch::DSL::Search::Queries::Bool do
         end
       end
 
-      context 'when the filter is a `Elasticsearch::DSL::Search::Filter` object' do
+      context 'when the filter is a `Elasticsearch6::DSL::Search::Filter` object' do
 
         let(:search) do
-          filter_object = Elasticsearch::DSL::Search::Filter.new do
+          filter_object = Elasticsearch6::DSL::Search::Filter.new do
             term bar: 'Bar!'
           end
           described_class.new do

@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Watcher
@@ -13,9 +13,9 @@ module Elasticsearch
           #
           def stats(arguments={})
             valid_params = [ :metric, :emit_stacktraces ]
-            method = Elasticsearch::API::HTTP_GET
+            method = Elasticsearch6::API::HTTP_GET
             path   = "_xpack/watcher/stats"
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
             body   = nil
 
             perform_request(method, path, params, body).body

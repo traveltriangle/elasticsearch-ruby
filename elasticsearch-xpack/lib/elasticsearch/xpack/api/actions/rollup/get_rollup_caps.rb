@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Rollup
@@ -9,7 +9,7 @@ module Elasticsearch
           # @option arguments [String] :id The ID of the index to check rollup capabilities on, or left blank for all jobs
           #
           def get_rollup_caps(arguments={})
-            method = Elasticsearch::API::HTTP_GET
+            method = Elasticsearch6::API::HTTP_GET
             path   = "_xpack/rollup/data/#{arguments[:id]}"
             params = {}
             body   = nil

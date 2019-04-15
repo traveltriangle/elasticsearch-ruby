@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Nodes
       module Actions
@@ -12,9 +12,9 @@ module Elasticsearch
         # @see http://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-nodes-usage.html
         #
         def usage(arguments={})
-          method = Elasticsearch::API::HTTP_GET
+          method = Elasticsearch6::API::HTTP_GET
           path   = "_nodes/usage"
-          params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
+          params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
           body   = nil
 
           perform_request(method, path, params, body).body

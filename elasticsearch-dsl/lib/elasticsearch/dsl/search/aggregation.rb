@@ -1,8 +1,8 @@
-module Elasticsearch
+module Elasticsearch6
   module DSL
     module Search
 
-      # Contains the classes for Elasticsearch aggregations
+      # Contains the classes for Elasticsearch6 aggregations
       #
       module Aggregations;end
 

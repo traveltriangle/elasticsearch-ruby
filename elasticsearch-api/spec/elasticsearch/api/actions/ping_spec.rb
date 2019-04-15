@@ -33,7 +33,7 @@ describe 'client#ping' do
     end
 
     let(:client) do
-      Class.new { include Elasticsearch::API }.new
+      Class.new { include Elasticsearch6::API }.new
     end
 
     it 'returns false' do
@@ -48,7 +48,7 @@ describe 'client#ping' do
     end
 
     let(:client) do
-      Class.new { include Elasticsearch::API }.new
+      Class.new { include Elasticsearch6::API }.new
     end
 
     it 'returns false' do

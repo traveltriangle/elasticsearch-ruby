@@ -1,11 +1,11 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Security
         module Actions; end
 
         class SecurityClient
-          include Elasticsearch::API::Common::Client, Elasticsearch::API::Common::Client::Base, Security::Actions
+          include Elasticsearch6::API::Common::Client, Elasticsearch6::API::Common::Client::Base, Security::Actions
         end
 
         def security

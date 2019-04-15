@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module Elasticsearch
+module Elasticsearch6
   module Test
     class XPackMlGetOverallBucketsTest < Minitest::Test
 

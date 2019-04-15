@@ -1,4 +1,4 @@
-# Elasticsearch::API
+# Elasticsearch6::API
 
 **This library is part of the [`elasticsearch-ruby`](https://github.com/elasticsearch/elasticsearch-ruby/) package;
 please refer to it, unless you want to use this library standalone.**
@@ -6,17 +6,17 @@ please refer to it, unless you want to use this library standalone.**
 ----
 
 The `elasticsearch-api` library provides a Ruby implementation of
-the [Elasticsearch](http://elasticsearch.org) REST API.
+the [Elasticsearch6](http://elasticsearch.org) REST API.
 
-It does not provide an Elasticsearch client; see the
+It does not provide an Elasticsearch6 client; see the
 [`elasticsearch-transport`](https://github.com/elasticsearch/elasticsearch-ruby/tree/master/elasticsearch-transport) library.
 
 The library is compatible with Ruby 1.9 and higher.
 
-It is compatible with Elasticsearch's API versions from 0.90 till current,
-just use a release matching major version of Elasticsearch.
+It is compatible with Elasticsearch6's API versions from 0.90 till current,
+just use a release matching major version of Elasticsearch6.
 
-| Ruby          |   | Elasticsearch |
+| Ruby          |   | Elasticsearch6 |
 |:-------------:|:-:| :-----------: |
 | 0.90          | → | 0.90          |
 | 1.x           | → | 1.x           |
@@ -45,7 +45,7 @@ or install it from a source code checkout:
 ## Usage
 
 The library is designed as a group of standalone Ruby modules, which can be mixed into a class
-providing connection to Elasticsearch -- an Elasticsearch client.
+providing connection to Elasticsearch6 -- an Elasticsearch6 client.
 
 ### Usage with the `elasticsearch` gem
 
@@ -55,7 +55,7 @@ the library modules have been already included**, so you just call the API metho
 ```ruby
 require 'elasticsearch'
 
-client = Elasticsearch::Client.new log: true
+client = Elasticsearch6::Client.new log: true
 
 client.index  index: 'myindex', type: 'mytype', id: 1, body: { title: 'Test' }
 # => {"_index"=>"myindex", ... "created"=>true}
@@ -82,7 +82,7 @@ require 'faraday'
 require 'elasticsearch/api'
 
 class MySimpleClient
-  include Elasticsearch::API
+  include Elasticsearch6::API
 
   CONNECTION = ::Faraday::Connection.new url: 'http://localhost:9200'
 
@@ -166,8 +166,8 @@ but allows you to set a custom JSON library, provided it uses the standard `load
 interface:
 
 ```ruby
-Elasticsearch::API.settings[:serializer] = JrJackson::Json
-Elasticsearch::API.serializer.dump({foo: 'bar'})
+Elasticsearch6::API.settings[:serializer] = JrJackson::Json
+Elasticsearch6::API.serializer.dump({foo: 'bar'})
 # => {"foo":"bar"}
 ```
 
@@ -191,7 +191,7 @@ can use Ruby 2.x syntax and features.
 
 This software is licensed under the Apache 2 license, quoted below.
 
-    Copyright (c) 2013 Elasticsearch <http://www.elasticsearch.org>
+    Copyright (c) 2013 Elasticsearch6 <http://www.elasticsearch.org>
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

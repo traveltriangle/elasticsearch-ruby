@@ -27,7 +27,7 @@ describe 'client.cluster#put_alias' do
   context 'when there is no name specified' do
 
     let(:client) do
-      Class.new { include Elasticsearch::API }.new
+      Class.new { include Elasticsearch6::API }.new
     end
 
     it 'raises an exception' do

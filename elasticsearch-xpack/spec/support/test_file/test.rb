@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
 
   module RestAPIYAMLTests
 
@@ -33,12 +33,12 @@ module Elasticsearch
                             ].freeze
 
 
-        # The maximum Elasticsearch version this client version can successfully run tests against.
+        # The maximum Elasticsearch6 version this client version can successfully run tests against.
         #
         # @since 6.2.0
         MAX_REQUIRED_VERSION = nil
 
-        # The minimum Elasticsearch version this client version can successfully run tests against.
+        # The minimum Elasticsearch6 version this client version can successfully run tests against.
         #
         # @since 6.2.0
         MIN_REQUIRED_VERSION = nil
@@ -126,7 +126,7 @@ module Elasticsearch
         # @example
         #   test.run(client)
         #
-        # @param [ Elasticsearch::Client ] client The client to use when executing operations.
+        # @param [ Elasticsearch6::Client ] client The client to use when executing operations.
         #
         # @return [ self ]
         #
@@ -179,7 +179,7 @@ module Elasticsearch
             begin
               server_version = client.info['version']['number']
             rescue
-              warn('Could not determine Elasticsearch version when checking if test should be skipped.')
+              warn('Could not determine Elasticsearch6 version when checking if test should be skipped.')
             end
             range.cover?(server_version)
           end

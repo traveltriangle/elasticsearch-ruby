@@ -16,20 +16,20 @@ unless defined?(ELASTICSEARCH_URL)
   ELASTICSEARCH_URL = ENV['ELASTICSEARCH_URL'] || ENV['TEST_ES_SERVER'] || "localhost:#{(ENV['TEST_CLUSTER_PORT'] || 9200)}"
 end
 
-DEFAULT_CLIENT = Elasticsearch::Client.new host: ELASTICSEARCH_URL,
+DEFAULT_CLIENT = Elasticsearch6::Client.new host: ELASTICSEARCH_URL,
                                            tracer: (ENV['QUIET'] ? nil : tracer)
 
 module HelperModule
   def self.included(context)
 
     context.let(:client_double) do
-      Class.new { include Elasticsearch::API }.new.tap do |client|
+      Class.new { include Elasticsearch6::API }.new.tap do |client|
         expect(client).to receive(:perform_request).with(*expected_args).and_return(response_double)
       end
     end
 
     context.let(:client) do
-      Class.new { include Elasticsearch::API }.new.tap do |client|
+      Class.new { include Elasticsearch6::API }.new.tap do |client|
         expect(client).to receive(:perform_request).with(*expected_args).and_return(response_double)
       end
     end

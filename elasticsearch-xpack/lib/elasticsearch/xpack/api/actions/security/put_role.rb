@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Security
@@ -18,9 +18,9 @@ module Elasticsearch
 
             valid_params = [ :refresh ]
 
-            method = Elasticsearch::API::HTTP_PUT
+            method = Elasticsearch6::API::HTTP_PUT
             path   = "_xpack/security/role/#{arguments[:name]}"
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
             body   = arguments[:body]
 
             perform_request(method, path, params, body).body

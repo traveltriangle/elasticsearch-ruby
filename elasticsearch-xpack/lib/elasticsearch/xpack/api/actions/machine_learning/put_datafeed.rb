@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module MachineLearning
@@ -14,7 +14,7 @@ module Elasticsearch
           def put_datafeed(arguments={})
             raise ArgumentError, "Required argument 'datafeed_id' missing" unless arguments[:datafeed_id]
             raise ArgumentError, "Required argument 'body' missing" unless arguments[:body]
-            method = Elasticsearch::API::HTTP_PUT
+            method = Elasticsearch6::API::HTTP_PUT
             path   = "_xpack/ml/datafeeds/#{arguments[:datafeed_id]}"
             params = {}
             body   = arguments[:body]

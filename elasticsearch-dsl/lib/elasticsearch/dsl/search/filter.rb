@@ -1,8 +1,8 @@
-module Elasticsearch
+module Elasticsearch6
   module DSL
     module Search
 
-      # Contains the classes for Elasticsearch filters
+      # Contains the classes for Elasticsearch6 filters
       #
       module Filters;end
 

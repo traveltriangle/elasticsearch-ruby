@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Actions
 
@@ -9,7 +9,7 @@ module Elasticsearch
       # @see https://www.elastic.co/guide/en/elasticsearch/painless/master/painless-execute-api.html
       #
       def scripts_painless_execute(arguments={})
-        method = Elasticsearch::API::HTTP_GET
+        method = Elasticsearch6::API::HTTP_GET
         path   = "_scripts/painless/_execute"
         params = {}
         body   = arguments[:body]

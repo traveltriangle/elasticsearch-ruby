@@ -1,11 +1,11 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Rollup
         module Actions; end
 
         class RollupClient
-          include Elasticsearch::API::Common::Client, Elasticsearch::API::Common::Client::Base, Rollup::Actions
+          include Elasticsearch6::API::Common::Client, Elasticsearch6::API::Common::Client::Base, Rollup::Actions
         end
 
         def rollup

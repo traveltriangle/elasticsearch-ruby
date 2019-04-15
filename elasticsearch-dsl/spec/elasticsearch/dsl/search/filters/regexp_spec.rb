@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Filters::Regexp do
+describe Elasticsearch6::DSL::Search::Filters::Regexp do
 
   let(:search) do
     described_class.new

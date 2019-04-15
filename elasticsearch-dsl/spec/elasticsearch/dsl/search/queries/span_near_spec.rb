@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Queries::SpanNear do
+describe Elasticsearch6::DSL::Search::Queries::SpanNear do
 
   describe '#to_hash' do
 

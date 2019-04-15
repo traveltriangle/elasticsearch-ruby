@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Rollup
@@ -12,7 +12,7 @@ module Elasticsearch
           #
           def delete_job(arguments={})
             raise ArgumentError, "Required argument 'id' missing" unless arguments[:id]
-            method = Elasticsearch::API::HTTP_DELETE
+            method = Elasticsearch6::API::HTTP_DELETE
             path   = "_xpack/rollup/job/#{arguments[:id]}"
             params = {}
             body   = nil

@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Security
@@ -7,7 +7,7 @@ module Elasticsearch
           # Get user privileges
           #
           def get_user_privileges(arguments={})
-            method = Elasticsearch::API::HTTP_GET
+            method = Elasticsearch6::API::HTTP_GET
             params = {}
             body   = nil
 

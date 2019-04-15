@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Queries::MultiMatch do
+describe Elasticsearch6::DSL::Search::Queries::MultiMatch do
 
   describe '#to_hash' do
 

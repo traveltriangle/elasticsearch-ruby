@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'API Client' do
 
   let(:client) do
-    Class.new { include Elasticsearch::API }.new
+    Class.new { include Elasticsearch6::API }.new
   end
 
   describe '#cluster' do

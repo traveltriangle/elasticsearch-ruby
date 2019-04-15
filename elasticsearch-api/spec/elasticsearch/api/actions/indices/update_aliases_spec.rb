@@ -27,7 +27,7 @@ describe 'client.cluster#update_aliases' do
   context 'when a body is not specified' do
 
     let(:client) do
-      Class.new { include Elasticsearch::API }.new
+      Class.new { include Elasticsearch6::API }.new
     end
 
     it 'raises an exception' do

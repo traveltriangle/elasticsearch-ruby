@@ -27,11 +27,11 @@ module Minitest
   end
 end
 
-module Elasticsearch
+module Elasticsearch6
   module Test
     class FakeClient
       def xpack
-        @xpack_client ||= Elasticsearch::XPack::API::Client.new(self)
+        @xpack_client ||= Elasticsearch6::XPack::API::Client.new(self)
       end
 
       def perform_request(method, path, params, body)

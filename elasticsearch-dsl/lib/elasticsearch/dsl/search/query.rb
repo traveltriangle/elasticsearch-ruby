@@ -1,8 +1,8 @@
-module Elasticsearch
+module Elasticsearch6
   module DSL
     module Search
 
-      # Contains the classes for Elasticsearch queries
+      # Contains the classes for Elasticsearch6 queries
       #
       module Queries;end
 

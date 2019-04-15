@@ -1,6 +1,6 @@
 require 'manticore'
 
-module Elasticsearch
+module Elasticsearch6
   module Transport
     module Transport
       module HTTP
@@ -11,7 +11,7 @@ module Elasticsearch
         #
         #     require 'elasticsearch/transport/transport/http/manticore'
         #
-        #     client = Elasticsearch::Client.new transport_class: Elasticsearch::Transport::Transport::HTTP::Manticore
+        #     client = Elasticsearch6::Client.new transport_class: Elasticsearch6::Transport::Transport::HTTP::Manticore
         #
         #     client.transport.connections.first.connection
         #     => #<Manticore::Client:0x56bf7ca6 ...>
@@ -24,9 +24,9 @@ module Elasticsearch
         #
         #     require 'elasticsearch/transport/transport/http/manticore'
         #
-        #     client = Elasticsearch::Client.new \
+        #     client = Elasticsearch6::Client.new \
         #       url: 'https://elasticsearch.example.com',
-        #       transport_class: Elasticsearch::Transport::Transport::HTTP::Manticore,
+        #       transport_class: Elasticsearch6::Transport::Transport::HTTP::Manticore,
         #       ssl: {
         #         truststore: '/tmp/truststore.jks',
         #         truststore_password: 'password',

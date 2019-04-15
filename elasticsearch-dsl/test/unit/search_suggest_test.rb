@@ -1,9 +1,9 @@
 require 'test_helper'
 
-module Elasticsearch
+module Elasticsearch6
   module Test
-    class SearchSuggestTest < ::Elasticsearch::Test::UnitTestCase
-      subject { Elasticsearch::DSL::Search::Suggest.new :foo }
+    class SearchSuggestTest < ::Elasticsearch6::Test::UnitTestCase
+      subject { Elasticsearch6::DSL::Search::Suggest.new :foo }
 
       context "Search suggest" do
         should "be an empty hash by default" do
@@ -11,7 +11,7 @@ module Elasticsearch
         end
 
         should "contain options" do
-          subject = Elasticsearch::DSL::Search::Suggest.new :foo, boo: 'bam'
+          subject = Elasticsearch6::DSL::Search::Suggest.new :foo, boo: 'bam'
           assert_equal({ foo: { boo: 'bam' } }, subject.to_hash)
         end
       end

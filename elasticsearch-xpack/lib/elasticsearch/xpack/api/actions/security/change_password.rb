@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module XPack
     module API
       module Security
@@ -20,9 +20,9 @@ module Elasticsearch
             arguments = arguments.clone
             username = arguments.delete(:username)
 
-            method = Elasticsearch::API::HTTP_PUT
-            path   = Elasticsearch::API::Utils.__pathify "_xpack/security/user/", username, "/_password"
-            params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+            method = Elasticsearch6::API::HTTP_PUT
+            path   = Elasticsearch6::API::Utils.__pathify "_xpack/security/user/", username, "/_password"
+            params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
             body   = arguments[:body]
 
             perform_request(method, path, params, body).body

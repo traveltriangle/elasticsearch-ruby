@@ -1,12 +1,12 @@
 require 'test_helper'
 
-module Elasticsearch
+module Elasticsearch6
   module Test
-    class SearchIntegrationTest < ::Elasticsearch::Test::IntegrationTestCase
-      include Elasticsearch::DSL::Search
+    class SearchIntegrationTest < ::Elasticsearch6::Test::IntegrationTestCase
+      include Elasticsearch6::DSL::Search
 
       class MySearch
-        include Elasticsearch::DSL::Search
+        include Elasticsearch6::DSL::Search
 
         def initialize(q)
           @q = q
@@ -34,7 +34,7 @@ module Elasticsearch
 
       context "The Search class" do
         startup do
-          Elasticsearch::Extensions::Test::Cluster.start(number_of_nodes: 1) if ENV['SERVER'] and not Elasticsearch::Extensions::Test::Cluster.running?(number_of_nodes: 1)
+          Elasticsearch6::Extensions::Test::Cluster.start(number_of_nodes: 1) if ENV['SERVER'] and not Elasticsearch6::Extensions::Test::Cluster.running?(number_of_nodes: 1)
         end
 
         setup do

@@ -8,7 +8,7 @@ task :test    => 'test:unit'
 require 'rake/testtask'
 namespace :test do
 
-  desc "Wait for Elasticsearch to be in a green state"
+  desc "Wait for Elasticsearch6 to be in a green state"
   task :wait_for_green do
     sh '../scripts/wait-cluster.sh'
   end

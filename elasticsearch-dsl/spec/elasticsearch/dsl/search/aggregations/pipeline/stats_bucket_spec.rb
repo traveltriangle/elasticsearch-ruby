@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Aggregations::StatsBucket do
+describe Elasticsearch6::DSL::Search::Aggregations::StatsBucket do
 
   let(:search) do
     described_class.new

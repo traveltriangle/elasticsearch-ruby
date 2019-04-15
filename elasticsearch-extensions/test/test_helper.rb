@@ -27,7 +27,7 @@ require 'elasticsearch/extensions'
 require 'elasticsearch/extensions/test/startup_shutdown'
 require 'elasticsearch/extensions/test/cluster'
 
-module Elasticsearch
+module Elasticsearch6
   module Test
     module Assertions
       def assert_nothing_raised(*)
@@ -46,15 +46,15 @@ module Elasticsearch
       alias_method :assert_not_nil, :refute_nil
       alias_method :assert_raise, :assert_raises
 
-      include Elasticsearch::Extensions::Test
+      include Elasticsearch6::Extensions::Test
       extend  StartupShutdown
 
       startup do
-        Elasticsearch::Extensions::Test::Cluster.start(number_of_nodes: 2) if ENV['SERVER'] and not Elasticsearch::Extensions::Test::Cluster.running?(number_of_nodes: 2)
+        Elasticsearch6::Extensions::Test::Cluster.start(number_of_nodes: 2) if ENV['SERVER'] and not Elasticsearch6::Extensions::Test::Cluster.running?(number_of_nodes: 2)
       end
 
       shutdown do
-        Elasticsearch::Extensions::Test::Cluster.stop(number_of_nodes: 2) if ENV['SERVER'] and Elasticsearch::Extensions::Test::Cluster.running?(number_of_nodes: 2)
+        Elasticsearch6::Extensions::Test::Cluster.stop(number_of_nodes: 2) if ENV['SERVER'] and Elasticsearch6::Extensions::Test::Cluster.running?(number_of_nodes: 2)
       end
     end
   end

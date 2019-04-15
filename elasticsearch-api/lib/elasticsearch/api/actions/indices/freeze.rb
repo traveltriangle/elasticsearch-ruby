@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Indices
       module Actions
@@ -9,7 +9,7 @@ module Elasticsearch
         #
         # @option arguments [List] :index A comma separated list of indices to freeze. (*Required*)
         #
-        # @note This feature is available in the Platinum distribution of Elasticsearch.
+        # @note This feature is available in the Platinum distribution of Elasticsearch6.
         #
         # @see https://www.elastic.co/guide/en/elasticsearch/reference/current/frozen-indices.html
         #
@@ -27,9 +27,9 @@ module Elasticsearch
           arguments = arguments.clone
           index = arguments.delete(:index)
 
-          method = Elasticsearch::API::HTTP_POST
-          path = Elasticsearch::API::Utils.__pathify Elasticsearch::API::Utils.__listify(index), '_freeze'
-          params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, valid_params
+          method = Elasticsearch6::API::HTTP_POST
+          path = Elasticsearch6::API::Utils.__pathify Elasticsearch6::API::Utils.__listify(index), '_freeze'
+          params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, valid_params
 
           perform_request(method, path, params).body
         end

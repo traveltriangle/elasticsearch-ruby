@@ -36,11 +36,11 @@ end
 
 # The default client.
 #
-# @return [ Elasticsearch::Client ] The default client.
+# @return [ Elasticsearch6::Client ] The default client.
 #
 # @since 7.0.0
 def default_client
-  $client ||= Elasticsearch::Client.new(hosts: ELASTICSEARCH_HOSTS)
+  $client ||= Elasticsearch6::Client.new(hosts: ELASTICSEARCH_HOSTS)
 end
 
 module Config

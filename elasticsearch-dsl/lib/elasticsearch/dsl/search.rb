@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module DSL
 
     # Provides DSL methods for building the search definition

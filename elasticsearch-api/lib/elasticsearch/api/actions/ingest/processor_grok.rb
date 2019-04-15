@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Ingest
       module Actions
@@ -10,7 +10,7 @@ module Elasticsearch
         # @see https://www.elastic.co/guide/en/elasticsearch/plugins/current/ingest.html
         #
         def processor_grok(arguments={})
-          method = Elasticsearch::API::HTTP_GET
+          method = Elasticsearch6::API::HTTP_GET
           path   = "_ingest/processor/grok"
           params = {}
           body   = nil

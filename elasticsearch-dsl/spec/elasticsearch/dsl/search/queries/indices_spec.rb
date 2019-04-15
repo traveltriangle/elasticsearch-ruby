@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Elasticsearch::DSL::Search::Queries::Indices do
+describe Elasticsearch6::DSL::Search::Queries::Indices do
 
   describe '#to_hash' do
 

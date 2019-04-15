@@ -24,15 +24,15 @@ module Backup
 
     # Integration with the Backup gem [http://backup.github.io/backup/v4/]
     #
-    # This extension allows to backup Elasticsearch indices as flat JSON files on the disk.
+    # This extension allows to backup Elasticsearch6 indices as flat JSON files on the disk.
     #
     # @example Use the Backup gem's DSL to configure the backup
     #
     #     require 'elasticsearch/extensions/backup'
     #
-    #     Model.new(:elasticsearch_backup, 'Elasticsearch') do
+    #     Model.new(:elasticsearch_backup, 'Elasticsearch6') do
     #
-    #       database Elasticsearch do |db|
+    #       database Elasticsearch6 do |db|
     #         db.url     = 'http://localhost:9200'
     #         db.indices = 'articles,people'
     #         db.size    = 500
@@ -65,8 +65,8 @@ module Backup
     #       logfile.log_path  = '/tmp/backups/log'
     #     end; Backup::Logger.start!
     #
-    #     backup  = Backup::Model.new(:elasticsearch, 'Backup Elasticsearch') do
-    #       database Backup::Database::Elasticsearch do |db|
+    #     backup  = Backup::Model.new(:elasticsearch, 'Backup Elasticsearch6') do
+    #       database Backup::Database::Elasticsearch6 do |db|
     #         db.indices = 'test'
     #       end
     #
@@ -82,7 +82,7 @@ module Backup
     #     PATH = '/path/to/backup/'
     #
     #     require 'elasticsearch'
-    #     client  = Elasticsearch::Client.new log: true
+    #     client  = Elasticsearch6::Client.new log: true
     #     payload = []
     #
     #     Dir[ File.join( PATH, '**', '*.json' ) ].each do |file|
@@ -103,7 +103,7 @@ module Backup
     #
     # @see http://backup.github.io/backup/v4/
     #
-    class Elasticsearch < Base
+    class Elasticsearch6 < Base
       class Error < ::Backup::Error; end
 
       attr_accessor :url,
@@ -139,7 +139,7 @@ module Backup
       end
 
       def client
-        @client ||= ::Elasticsearch::Client.new url: url, logger: logger
+        @client ||= ::Elasticsearch6::Client.new url: url, logger: logger
       end
 
       def path
@@ -174,4 +174,4 @@ module Backup
   end
 end
 
-::Backup::Config::DSL::Elasticsearch = ::Backup::Database::Elasticsearch
+::Backup::Config::DSL::Elasticsearch6 = ::Backup::Database::Elasticsearch6

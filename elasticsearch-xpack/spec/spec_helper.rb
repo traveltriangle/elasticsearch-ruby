@@ -46,12 +46,12 @@ if defined?(TEST_HOST) && defined?(TEST_PORT)
     URL = "http://#{TEST_HOST}:#{TEST_PORT}"
   end
 
-  ADMIN_CLIENT = Elasticsearch::Client.new(host: URL, transport_options: TRANSPORT_OPTIONS)
+  ADMIN_CLIENT = Elasticsearch6::Client.new(host: URL, transport_options: TRANSPORT_OPTIONS)
 
   if ENV['QUIET'] == 'true'
-    DEFAULT_CLIENT = Elasticsearch::Client.new(host: URL, transport_options: TRANSPORT_OPTIONS)
+    DEFAULT_CLIENT = Elasticsearch6::Client.new(host: URL, transport_options: TRANSPORT_OPTIONS)
   else
-    DEFAULT_CLIENT = Elasticsearch::Client.new(host: URL,
+    DEFAULT_CLIENT = Elasticsearch6::Client.new(host: URL,
                                                transport_options: TRANSPORT_OPTIONS,
                                                tracer: Logger.new($stdout))
   end
@@ -67,7 +67,7 @@ SINGLE_TEST = if ENV['SINGLE_TEST'] && !ENV['SINGLE_TEST'].empty?
 
 SKIPPED_TESTS = []
 
-# Response from Elasticsearch includes the ca.crt, so length doesn't match.
+# Response from Elasticsearch6 includes the ca.crt, so length doesn't match.
 SKIPPED_TESTS << { file:        'ssl/10_basic.yml',
                    description: 'Test get SSL certificates' }
 
@@ -168,13 +168,13 @@ module HelperModule
   def self.included(context)
 
     context.let(:client_double) do
-      Class.new { include Elasticsearch::XPack::API }.new.tap do |client|
+      Class.new { include Elasticsearch6::XPack::API }.new.tap do |client|
         expect(client).to receive(:perform_request).with(*expected_args).and_return(response_double)
       end
     end
 
     context.let(:client) do
-      Class.new { include Elasticsearch::XPack::API }.new.tap do |client|
+      Class.new { include Elasticsearch6::XPack::API }.new.tap do |client|
         expect(client).to receive(:perform_request).with(*expected_args).and_return(response_double)
       end
     end

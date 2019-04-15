@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Actions
 
@@ -24,9 +24,9 @@ module Elasticsearch
         raise ArgumentError, "Required argument 'id' missing" unless arguments[:id]
         raise ArgumentError, "Required argument 'index' missing" unless arguments[:index]
         raise ArgumentError, "Required argument 'type' missing" unless arguments[:type]
-        method = Elasticsearch::API::HTTP_HEAD
+        method = Elasticsearch6::API::HTTP_HEAD
         path   = "#{arguments[:index]}/#{arguments[:type]}/#{arguments[:id]}/_source"
-        params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
+        params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
         body   = nil
 
         perform_request(method, path, params, body).body

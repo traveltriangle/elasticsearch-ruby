@@ -13,7 +13,7 @@ describe 'client#delete_by_query' do
 
   it 'requires the :index argument' do
     expect {
-      Class.new { include Elasticsearch::API }.new.delete_by_query(body: {})
+      Class.new { include Elasticsearch6::API }.new.delete_by_query(body: {})
     }.to raise_exception(ArgumentError)
   end
 

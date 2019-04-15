@@ -1,4 +1,4 @@
-module Elasticsearch
+module Elasticsearch6
   module API
     module Actions
 
@@ -11,9 +11,9 @@ module Elasticsearch
       #
       def reindex_rethrottle(arguments={})
         raise ArgumentError, "Required argument 'task_id' missing" unless arguments[:task_id]
-        method = Elasticsearch::API::HTTP_POST
+        method = Elasticsearch6::API::HTTP_POST
         path   = "_reindex/#{arguments[:task_id]}/_rethrottle"
-        params = Elasticsearch::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
+        params = Elasticsearch6::API::Utils.__validate_and_extract_params arguments, ParamsRegistry.get(__method__)
         body   = nil
 
         perform_request(method, path, params, body).body
