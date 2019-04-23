@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+gms = %w(elasticsearch6 elasticsearch6-api elasticsearch6-dsl elasticsearch6-extensions elasticsearch6-transport elasticsearch6-xpack)
+gms.each do |gm|
+  Dir.chdir(gm) do
+    `gem build #{gm}.gemspec`
+    `mv #{gm}*.gem ../`
+  end
+end

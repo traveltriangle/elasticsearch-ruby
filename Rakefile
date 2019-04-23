@@ -3,17 +3,17 @@ import 'rake_tasks/elasticsearch_tasks.rake'
 import 'rake_tasks/test_tasks.rake'
 
 CURRENT_PATH = Pathname( File.expand_path('..', __FILE__) )
-SUBPROJECTS = [ 'elasticsearch',
-                'elasticsearch-transport',
-                'elasticsearch-dsl',
-                'elasticsearch-api',
-                'elasticsearch-extensions',
-                'elasticsearch-xpack' ].freeze
+SUBPROJECTS = [ 'elasticsearch6',
+                'elasticsearch6-transport',
+                'elasticsearch6-dsl',
+                'elasticsearch6-api',
+                'elasticsearch6-extensions',
+                'elasticsearch6-xpack' ].freeze
 
-RELEASE_TOGETHER = [ 'elasticsearch',
-                     'elasticsearch-transport',
-                     'elasticsearch-api',
-                     'elasticsearch-xpack' ].freeze
+RELEASE_TOGETHER = [ 'elasticsearch6',
+                     'elasticsearch6-transport',
+                     'elasticsearch6-api',
+                     'elasticsearch6-xpack' ].freeze
 
 CERT_DIR = ENV['CERT_DIR'] || '.ci/certs'
 
@@ -94,7 +94,7 @@ end
 desc "Release all subprojects to Rubygems"
 task :release do
   RELEASE_TOGETHER.each do |project|
-    next if project == 'elasticsearch-extensions'
+    next if project == 'elasticsearch6-extensions'
     sh "cd #{CURRENT_PATH.join(project)} && rake release"
     puts '-'*80
   end
@@ -140,7 +140,7 @@ task :update_version, :old, :new do |task, args|
 
   puts "\n\n", "= CHANGELOG ".ansi(:faint) + ('='*88).ansi(:faint), "\n"
 
-  log = `git --no-pager log --reverse --no-color --pretty='* %s' HEAD --not v#{args[:old]} elasticsearch*`.split("\n")
+  log = `git --no-pager log --reverse --no-color --pretty='* %s' HEAD --not v#{args[:old]} elasticsearch6*`.split("\n")
 
   puts log.join("\n")
 
@@ -208,7 +208,7 @@ task :update_version, :old, :new do |task, args|
 
   puts "\n\n", "= DIFF ".ansi(:faint) + ('='*93).ansi(:faint)
 
-  diff = `git --no-pager diff --patch --word-diff=color --minimal elasticsearch*`.split("\n")
+  diff = `git --no-pager diff --patch --word-diff=color --minimal elasticsearch6*`.split("\n")
 
   puts diff
           .reject { |l| l =~ /^\e\[1mdiff \-\-git/ }
@@ -220,7 +220,7 @@ task :update_version, :old, :new do |task, args|
 
   puts "\n\n", "= COMMIT ".ansi(:faint) + ('='*91).ansi(:faint), "\n"
 
-  puts  "git add CHANGELOG.md elasticsearch*",
+  puts  "git add CHANGELOG.md elasticsearch6*",
         "git commit --verbose --message='Release #{args[:new]}' --edit",
         "rake release"
         "\n"

@@ -9,7 +9,7 @@
 require 'multi_json'
 require 'oj'
 
-require 'elasticsearch'
+require 'elasticsearch6'
 
 require 'bunny'
 
@@ -18,16 +18,16 @@ connection = Bunny.new
 connection.start
 
 channel  = connection.create_channel
-queue    = channel.queue 'examples.elasticsearch', auto_delete: true
+queue    = channel.queue 'examples.elasticsearch6', auto_delete: true
 exchange = channel.default_exchange
 
-elasticsearch = Elasticsearch6::Client.new log:true
+elasticsearch6 = Elasticsearch6::Client.new log:true
 
-elasticsearch.indices.delete index: 'rabbit' rescue nil
+elasticsearch6.indices.delete index: 'rabbit' rescue nil
 
 queue.subscribe do |delivery_info, metadata, payload|
   hash = MultiJson.load(payload)
-  elasticsearch.index index: 'rabbit', type: 'event', id: hash.delete(:id), body: hash
+  elasticsearch6.index index: 'rabbit', type: 'event', id: hash.delete(:id), body: hash
 end
 
 (1..10).each do |i|

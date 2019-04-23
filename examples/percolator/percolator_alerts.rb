@@ -3,11 +3,11 @@
 #
 # See:
 #
-# * https://www.elastic.co/blog/elasticsearch-percolator-continues-to-evolve
-# * https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-percolate-query.html
+# * https://www.elastic.co/blog/elasticsearch6-percolator-continues-to-evolve
+# * https://www.elastic.co/guide/en/elasticsearch6/reference/current/query-dsl-percolate-query.html
 
 require 'ansi'
-require 'elasticsearch'
+require 'elasticsearch6'
 
 client = Elasticsearch6::Client.new log: true
 client.transport.logger.formatter = proc do |severity, datetime, progname, msg| "\e[2m#{msg}\e[0m\n" end

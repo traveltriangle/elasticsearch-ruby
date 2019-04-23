@@ -1,0 +1,26 @@
+source 'https://rubygems.org'
+
+# Specify your gem's dependencies in elasticsearch6-xpack.gemspec
+gemspec
+
+group :development do
+  gem 'rspec'
+  gem 'pry-nav'
+end
+
+
+if File.exist? File.expand_path("../../elasticsearch6-api/elasticsearch6-api.gemspec", __FILE__)
+  gem 'elasticsearch6-api', :path => File.expand_path("../../elasticsearch6-api", __FILE__), :require => false
+end
+
+if File.exist? File.expand_path("../../elasticsearch6-transport/elasticsearch6-transport.gemspec", __FILE__)
+  gem 'elasticsearch6-transport', :path => File.expand_path("../../elasticsearch6-transport", __FILE__), :require => false
+end
+
+if File.exist? File.expand_path("../../elasticsearch6/elasticsearch6.gemspec", __FILE__)
+  gem 'elasticsearch6', :path => File.expand_path("../../elasticsearch6/", __FILE__)
+end
+
+if File.exist? File.expand_path("../../elasticsearch6/elasticsearch6-extensions.gemspec", __FILE__)
+  gem 'elasticsearch6-extensions', :path => File.expand_path("../../elasticsearch6-extensions/", __FILE__)
+end

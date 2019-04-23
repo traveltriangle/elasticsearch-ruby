@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'elasticsearch-api',        :path => File.expand_path("../elasticsearch-api", __FILE__),        :require => false
-gem 'elasticsearch-transport',  :path => File.expand_path("../elasticsearch-transport", __FILE__),  :require => false
-gem 'elasticsearch-extensions', :path => File.expand_path("../elasticsearch-extensions", __FILE__), :require => false
-gem 'elasticsearch',            :path => File.expand_path("../elasticsearch", __FILE__),            :require => false
+gem 'elasticsearch6-api',        :path => File.expand_path("../elasticsearch6-api", __FILE__),        :require => false
+gem 'elasticsearch6-transport',  :path => File.expand_path("../elasticsearch6-transport", __FILE__),  :require => false
+gem 'elasticsearch6-extensions', :path => File.expand_path("../elasticsearch6-extensions", __FILE__), :require => false
+gem 'elasticsearch6',            :path => File.expand_path("../elasticsearch6", __FILE__),            :require => false
 
 gem "rake"
 gem "pry"
